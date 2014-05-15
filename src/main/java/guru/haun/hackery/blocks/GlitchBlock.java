@@ -11,6 +11,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.FakePlayer;
 
 
 
@@ -28,13 +29,13 @@ public class GlitchBlock extends Block {
 	}
 	
 	public boolean removedByPlayer(World w, EntityPlayer p, int x, int y, int z){
+		if(p instanceof FakePlayer) return false;
 		if(p.capabilities.isCreativeMode);
 		else if(p.getHeldItem() == null) return false;
 		else if(p.getHeldItem().getItem() == null) return false;
 		else if(p.getHeldItem().getItem() != HackeryMod.glitchHarvester) return false;
 		return super.removedByPlayer(w, p, x, y, z);
 	}
-	
 	
 	@SideOnly(Side.CLIENT)
 	public boolean renderAsNormalBlock() {
