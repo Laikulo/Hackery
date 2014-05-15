@@ -13,6 +13,7 @@ public class GlitchBlock extends Block {
 		setBlockName("blockGlitch");
 		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
 		setLightOpacity(3);
+		setBlockTextureName("hackery:Glitch");
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -22,6 +23,6 @@ public class GlitchBlock extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {
-		return 0;
+		return 1;
 	}
 }

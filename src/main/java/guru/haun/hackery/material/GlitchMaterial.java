@@ -10,5 +10,9 @@ public class GlitchMaterial extends Material {
 		setImmovableMobility();
 		setRequiresTool();
 	}
+	
+	public boolean isSolid() {
+		return false;
+	}
 
 }
