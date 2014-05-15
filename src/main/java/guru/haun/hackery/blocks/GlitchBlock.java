@@ -6,6 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class GlitchBlock extends Block {
@@ -18,14 +20,13 @@ public class GlitchBlock extends Block {
 		setBlockTextureName("hackery:Glitch");
 	}
 	
-	
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z){
-		double x1 = .35F;
-		double y1 = .35F;
-		double z1 = .35F;
-		double x2 = .65F;
-		double y2 = .65F;
-		double z2 = .65F;
+	public void setBlockBoundsBasedOnState(World world, int x, int y, int z){
+		float x1 = .35F;
+		float y1 = .35F;
+		float z1 = .35F;
+		float x2 = .65F;
+		float y2 = .65F;
+		float z2 = .65F;
 		
 		if(world.getBlock(x + 1, y, z).equals(this) || world.getBlock(x - 1, y, z).equals(this)){
 			x1 = 0;
@@ -37,17 +38,24 @@ public class GlitchBlock extends Block {
 			z1 = 0;
 			z2 = 1;
 		}
-		
-		x1 += x;
-		x2 += x;
-		y1 += y;
-		y2 += y;
-		z1 += z;
-		z2 += z;
-		
-		return AxisAlignedBB.getAABBPool().getAABB(x1,y1,z1,x2,y2,z2);
+		this.setBlockBounds(x1,y1,z1,x2,y2,z2);
 	}
 	
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z){
+		this.setBlockBoundsBasedOnState(world, x, y, z);
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z){
+		this.setBlockBoundsBasedOnState(world, x, y, z);
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
+	}
+	
+	public MovingObjectPosition collisionRayTrace(World w, int x, int y, int z, Vec3 a, Vec3 b){
+		this.setBlockBoundsBasedOnState(w, x, y, z);
+		return super.collisionRayTrace(w, x, y, z, a, b);
+	}
 	
 	@SideOnly(Side.CLIENT)
 	public boolean renderAsNormalBlock() {
