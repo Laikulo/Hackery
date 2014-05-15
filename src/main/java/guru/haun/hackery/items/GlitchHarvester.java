@@ -44,14 +44,14 @@ public class GlitchHarvester extends ItemTool {
 		setTextureName("hackery:GlitchHarvester");
 	}
 	
+	public float getDamageVsEntity(){
+		return 0F;
+	}
+	
 	public Set<String> getToolClasses(ItemStack stack){
 		return Sets.newHashSet(new String[] {"GlitchHarvester"});
 	}
  
-	
-	public int getDamageVsEntity(){
-		return 0;
-	}
 	
 	//isCorrectForBlock
 	public boolean func_150809_b(Block block){
