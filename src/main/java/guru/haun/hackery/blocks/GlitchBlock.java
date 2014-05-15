@@ -28,6 +28,10 @@ public class GlitchBlock extends Block {
 		setHarvestLevel("GlitchHarvester", 1);
 	}
 	
+	public boolean isReplaceable(IBlockAccess w, int x, int y, int z){
+		return false;
+	}
+	
 	public boolean removedByPlayer(World w, EntityPlayer p, int x, int y, int z){
 		if(p instanceof FakePlayer) return false;
 		if(p.capabilities.isCreativeMode);
