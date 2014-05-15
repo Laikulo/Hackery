@@ -3,6 +3,7 @@ package guru.haun.hackery.worldgen;
 import guru.haun.hackery.HackeryMod;
 
 import java.util.Random;
+import java.util.logging.Level;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -16,7 +17,8 @@ public class GlitchPlacer implements IWorldGenerator {
 		//Overworld ONLY!!
 		if(!world.provider.isSurfaceWorld() ) return;
 		//Rarity Set
-		if(rng.nextInt(2) != 0) return;
+		if(rng.nextInt(100) != 0) return;
+		
 		
 		int originX = cX << 4 + rng.nextInt(16);
 		int originZ = cZ << 4 + rng.nextInt(16);
@@ -29,6 +31,8 @@ public class GlitchPlacer implements IWorldGenerator {
 		int centerX = originX + (lengthX >> 1);
 		int centerZ = originZ + (lengthZ >> 1);
 		int centerY = originY + (lengthY >> 1);
+		
+		HackeryMod.logger.info(String.format("Spawned a thing at %d %d %d",originX,originY,originZ));
 		
 		for(int x = originX; x < originX+lengthX; x++){
 			for(int y = originY; y < originY+lengthY;y++){

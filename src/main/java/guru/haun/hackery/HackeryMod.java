@@ -1,5 +1,7 @@
 package guru.haun.hackery;
 
+import org.apache.logging.log4j.Logger;
+
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
 import guru.haun.hackery.material.GlitchMaterial;
@@ -25,6 +27,8 @@ public class HackeryMod {
 	@Instance("hackery")
 	public static HackeryMod instance;
 	
+	public static Logger logger;
+	
 	//Glitch Blocks
 	public static GlitchMaterial		matGlitch			= new GlitchMaterial(MapColor.purpleColor);
 	public static GlitchBlock 			blockGlitch			= new GlitchBlock(matGlitch);
@@ -49,6 +53,8 @@ public class HackeryMod {
 		blockGlitch		.setCreativeTab(creativetab);
 		
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
+		
+		this.logger = e.getModLog();
 		
 	}
 	
