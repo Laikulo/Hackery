@@ -1,8 +1,8 @@
 package guru.haun.hackery;
 
-import guru.haun.hacker.material.GlitchMaterial;
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
+import guru.haun.hackery.material.GlitchMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
