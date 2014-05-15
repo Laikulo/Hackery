@@ -12,7 +12,7 @@ import net.minecraft.item.ItemTool;
 
 public class GlitchHarvester extends ItemTool {
 
-	private static float speed = 200;
+	private static float speed = 9000001;
 	private static Set mineable = Sets.newHashSet(new Block []{ (Block)HackeryMod.blockGlitch});
 	
 	public GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
@@ -22,11 +22,20 @@ public class GlitchHarvester extends ItemTool {
 		setNoRepair();
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
-		setHarvestLevel("GlitchHarvester", 0);
+		setHarvestLevel("GlitchHarvester", 1);
 	}
 	
 	public Set<String> getToolClasses(ItemStack stack){
 		return Sets.newHashSet(new String[] {"GlitchHarvester"});
+	}
+	
+	public int getDamageVsEntity(){
+		return 0;
+	}
+	
+	//isCorrectForBlock
+	public boolean func_150809_b(Block block){
+		return block == HackeryMod.blockGlitch;
 	}
 	
 	public GlitchHarvester(){

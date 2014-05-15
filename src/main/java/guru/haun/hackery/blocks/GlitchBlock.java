@@ -17,12 +17,12 @@ public class GlitchBlock extends Block {
 	public GlitchBlock(Material mat) {
 		super(mat);
 		setResistance(9000000);
-		setHardness(31337F);
+		setHardness(4000);
 		setBlockName("blockGlitch");
 		setLightOpacity(3);
 		setBlockTextureName("hackery:Glitch");
 		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
-		setHarvestLevel("GlitchHarvester", 0);
+		setHarvestLevel("GlitchHarvester", 1);
 	}
 	
 	
