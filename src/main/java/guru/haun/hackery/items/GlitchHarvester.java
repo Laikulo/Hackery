@@ -23,10 +23,10 @@ public class GlitchHarvester extends ItemTool {
 	
 	public GlitchHarvester registerRecipie(){
 		ItemStack resultstack = new ItemStack(this);
-		GameRegistry.addRecipe(resultstack, " E ","eRe","RsR",
+		GameRegistry.addRecipe(resultstack, " E ","eRe","rsr",
 								'r',	new ItemStack(Items.redstone,1,0),
 								'e',	new ItemStack(Items.emerald,1,0),
-								'E',	new ItemStack(Item.getItemFromBlock(Blocks.redstone_block),1,0),
+								'E',	new ItemStack(Item.getItemFromBlock(Blocks.emerald_block),1,0),
 								'R',	new ItemStack(Item.getItemFromBlock(Blocks.redstone_block),1,0),
 								's',	new ItemStack(Items.stick,1,0)
 								);
