@@ -5,6 +5,6 @@ bin/
 eclipse/
 *.class
 *.jar
-~*
+*~
 .metadata/
 .settings/

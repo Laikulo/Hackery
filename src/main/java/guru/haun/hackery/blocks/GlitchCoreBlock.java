@@ -7,6 +7,7 @@ public class GlitchCoreBlock extends GlitchBlock {
 	public GlitchCoreBlock(Material mat) {
 		super(mat);
 		setBlockUnbreakable();
+		setBlockName("blockGlitchCore");
 	}
 	
 

@@ -1,6 +1,6 @@
 while true
 do
-	sleep  5m
+	sleep  15m
 	git add .
 	git commit -m "Auto Commit! `date`"
 done
