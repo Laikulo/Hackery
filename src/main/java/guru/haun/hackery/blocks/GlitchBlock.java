@@ -9,7 +9,8 @@ public class GlitchBlock extends Block {
 		super(mat);
 		setResistance(9000000);
 		setBlockName("blockGlitch");
-		setBlockBounds(.5F, .5F, .5F, .5F, .5F, .5F);
+		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
+		setLightOpacity(3);
 	}
 
 }
