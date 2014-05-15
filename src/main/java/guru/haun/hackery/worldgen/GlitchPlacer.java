@@ -16,7 +16,7 @@ public class GlitchPlacer implements IWorldGenerator {
 		//Overworld ONLY!!
 		if(!world.provider.isSurfaceWorld() ) return;
 		//Rarity Set
-		if(rng.nextInt(100) != 0) return;
+		if(rng.nextInt(2) != 0) return;
 		
 		int originX = cX << 4 + rng.nextInt(16);
 		int originZ = cZ << 4 + rng.nextInt(16);
@@ -33,7 +33,9 @@ public class GlitchPlacer implements IWorldGenerator {
 		for(int x = originX; x < originX+lengthX; x++){
 			for(int y = originY; y < originY+lengthY;y++){
 				for(int z = originZ; y < originZ+lengthZ;z++){
-						
+					if(world.getBlock(x, y, z).getBlockHardness(world, x, y, z) >= 0.0F){
+						world.setBlockToAir(x, y, z);
+					}
 				}
 			}
 		}
