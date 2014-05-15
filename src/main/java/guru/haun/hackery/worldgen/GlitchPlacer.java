@@ -13,6 +13,10 @@ public class GlitchPlacer implements IWorldGenerator {
 		if(!world.provider.isSurfaceWorld() ) return;
 		//Rarity Set
 		if(rng.nextInt(100) != 0) return;
+		
+		int originX = cX << 4 + rng.nextInt(16);
+		int originZ = cZ << 4 + rng.nextInt(16);
+		int originY = rng.NextInt(47) + 3;
 	}
 
 }
