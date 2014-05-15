@@ -51,34 +51,37 @@ public class GlitchBlock extends Block {
 		this.setBlockBounds(x1, y1, z1, x2, y2, z2);
 	}
 	
-	public void setBlockBoundsBasedOnState(World world, int x, int y, int z){
-	
-		if(world.getBlock(x + 1, y, z).equals(this) || world.getBlock(x - 1, y, z).equals(this)){
-			x1 = 0;
-			x2 = 1;
-		}else if(world.getBlock(x, y + 1, z).equals(this) || world.getBlock(x, y - 1,z).equals(this)){
-			y1 = 0;
-			y2 = 1;
-		}else if(world.getBlock(x, y, z + 1).equals(this) || world.getBlock(x, y, z - 1).equals(this)){
-			z1 = 0;
-			z2 = 1;
-		}
-		this.setBlockBounds(x1,y1,z1,x2,y2,z2);
+	public int onBlockPlaced(World w, int x, int y, int z, int side, float i, float j, float k, int metadata ){
+		return 0;
 	}
 	
+	private int ditermineMetadata(World w, int x, int y, int z){
+		if(w.getBlock(x + 1, y, z).equals(this) || w.getBlock(x - 1, y, z).equals(this)){
+			return 1;
+		}
+		if(w.getBlock(x, y + 1, z).equals(this) || w.getBlock(x, y - 1, z).equals(this)){
+			return 2;
+		}
+		if(w.getBlock(x, y, z + 1).equals(this) || w.getBlock(x, y, z - 1).equals(this)){
+			return 3;
+		}
+		return 0;
+	}
+	
+	
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z){
-		this.setBlockBoundsBasedOnState(world, x, y, z);
+		this.setBoundsFromMetaData(world, x, y, z);
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z){
-		this.setBlockBoundsBasedOnState(world, x, y, z);
+		this.setBoundsFromMetaData(world, x, y, z);
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
 	
 	public MovingObjectPosition collisionRayTrace(World w, int x, int y, int z, Vec3 a, Vec3 b){
-		this.setBlockBoundsBasedOnState(w, x, y, z);
+		this.setBoundsFromMetaData(w, x, y, z);
 		return super.collisionRayTrace(w, x, y, z, a, b);
 	}
 	
