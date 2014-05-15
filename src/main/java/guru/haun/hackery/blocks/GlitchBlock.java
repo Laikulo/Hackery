@@ -9,6 +9,7 @@ public class GlitchBlock extends Block {
 		super(mat);
 		setResistance(9000000);
 		setLightLevel(4);
+		setUnlocalizedName("blockGlitch");
 	}
 
 }

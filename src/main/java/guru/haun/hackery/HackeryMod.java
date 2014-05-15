@@ -8,6 +8,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -30,8 +31,10 @@ public class HackeryMod {
 		
 		
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
-		public ItemStack getIconItemStack() {
-			return new ItemStack(this.GlitchBlock,1,0);
+		@Override
+		public Item getTabIconItem() {
+			return Items.ender_eye;
+		}
 	};
 	
 
@@ -42,7 +45,7 @@ public class HackeryMod {
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
 
 		blockGlitchCore	.setCreativeTab(creativetab);
-		blockGlitc		.setCreativeTab(creativetab);
+		blockGlitch		.setCreativeTab(creativetab);
 		
 	}
 	
