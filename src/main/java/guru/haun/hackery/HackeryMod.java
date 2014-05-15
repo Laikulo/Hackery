@@ -6,6 +6,7 @@ import guru.haun.hackery.blocks.GlitchCoreBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -15,7 +16,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid="hackery", name="Hackers", version = "modjam")
-public class HackeryMod {
+public class HackeryMod 
+
+	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
+		
+	};
 	
 
 	@EventHandler
