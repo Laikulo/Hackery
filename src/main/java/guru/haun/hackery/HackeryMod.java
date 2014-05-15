@@ -16,20 +16,23 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid="hackery", name="Hackers", version = "modjam")
-public class HackeryMod 
+public class HackeryMod {
+	
 
-	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
+	//Glitch Blocks
+	public static GlitchMaterial		matGlitch			= new GlitchMaterial(MapColor.purpleColor);
+	public static GlitchBlock 		blockGlitch			= new GlitchBlock(matGlitch);
+	public static GlitchCoreBlock		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
 		
+		
+	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
+		public ItemStack getIconItemStack() {
+			return new ItemStack(
 	};
 	
 
 	@EventHandler
 	public void HackeryPreInit(FMLPreInitializationEvent e){
-
-		//Glitch Blocks
-		Material 	matGlitch			= new GlitchMaterial(MapColor.purpleColor);
-		Block 		blockGlitch			= new GlitchBlock(matGlitch);
-		Block		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
 		
 		GameRegistry.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry.registerBlock(blockGlitch, "blockGlitch");
