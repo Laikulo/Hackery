@@ -17,15 +17,15 @@ public class GlitchPlacer implements IWorldGenerator {
 		//Overworld ONLY!!
 		if(!world.provider.isSurfaceWorld() ) return;
 		//Rarity Set
-		if(rng.nextInt(100) != 0) return;
+		if(rng.nextInt(150) != 0) return;
 		
 		
 		int originX = cX << 4 + rng.nextInt(16);
 		int originZ = cZ << 4 + rng.nextInt(16);
 		int originY = rng.nextInt(47) + 3;
 		
-		int lengthX = rng.nextInt(3) + 3;
-		int lengthZ = rng.nextInt(3) + 3;
+		int lengthX = (rng.nextInt(1) << 1) + 3;
+		int lengthZ = (rng.nextInt(1) << 1)+ 3;
 		int lengthY = rng.nextInt(3) + 6;
 		
 		int centerX = originX + (lengthX >> 1);
@@ -43,6 +43,21 @@ public class GlitchPlacer implements IWorldGenerator {
 				}
 			}
 		}
+
+		for(int x = originX; x < originX+lengthX; x++){
+			world.setBlock(x, centerY, centerZ, HackeryMod.blockGlitch, 0, 3);
+		}
+		
+		for(int y = originY; y < originY+lengthY; y++){
+			world.setBlock(centerX, y, centerZ, HackeryMod.blockGlitch, 0, 3);
+		}
+		
+		for(int z = originZ; z < originZ+lengthZ; z++){
+			world.setBlock(centerX, centerY, z, HackeryMod.blockGlitch, 0, 3);
+		}
+		
+		world.setBlock(centerX, centerY, centerZ, HackeryMod.blockGlitchCore, 0, 3);
+		
 		
 	}
 
