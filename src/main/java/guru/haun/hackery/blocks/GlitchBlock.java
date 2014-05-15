@@ -15,7 +15,6 @@ public class GlitchBlock extends Block {
 		setBlockName("blockGlitch");
 		setLightOpacity(3);
 		setBlockTextureName("hackery:Glitch");
-		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
 	}
 	
 	public void setBlockBoundsBasedOnState(World w, int x, int y, int z) {
@@ -32,8 +31,13 @@ public class GlitchBlock extends Block {
 			return;
 		}
 		this.setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
-		
 	}
+	
+	public void onNeighborBlockChange(World w,int x, int y, int z, Block change){
+		this.setBlockBoundsBasedOnState(w,x,y,z);
+	}
+	
+	
 	
 	@SideOnly(Side.CLIENT)
 	public boolean renderAsNormalBlock() {
