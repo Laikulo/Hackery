@@ -32,7 +32,7 @@ public class GlitchPlacer implements IWorldGenerator {
 		
 		for(int x = originX; x < originX+lengthX; x++){
 			for(int y = originY; y < originY+lengthY;y++){
-				for(int z = originZ; y < originZ+lengthZ;z++){
+				for(int z = originZ; z < originZ+lengthZ;z++){
 					if(world.getBlock(x, y, z).getBlockHardness(world, x, y, z) >= 0.0F){
 						world.setBlockToAir(x, y, z);
 					}

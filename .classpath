@@ -136,5 +136,6 @@
 			<attribute name="javadoc_location" value="jar:file:/P:/KJ4IPS/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-reflect/2.10.2/6bcae4ac7f8f165926785b5faf957f69405b73ed/scala-reflect-2.10.2-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="eclipse/buildcraft-6.0.13-dev.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

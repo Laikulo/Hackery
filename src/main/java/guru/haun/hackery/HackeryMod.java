@@ -3,6 +3,7 @@ package guru.haun.hackery;
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
 import guru.haun.hackery.material.GlitchMaterial;
+import guru.haun.hackery.worldgen.GlitchPlacer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -46,6 +47,8 @@ public class HackeryMod {
 
 		blockGlitchCore	.setCreativeTab(creativetab);
 		blockGlitch		.setCreativeTab(creativetab);
+		
+		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
 		
 	}
 	
