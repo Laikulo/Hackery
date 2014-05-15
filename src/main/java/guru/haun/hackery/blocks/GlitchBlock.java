@@ -11,6 +11,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+
+
 public class GlitchBlock extends Block {
 
 	public GlitchBlock(Material mat) {
@@ -19,9 +21,10 @@ public class GlitchBlock extends Block {
 		setBlockName("blockGlitch");
 		setLightOpacity(3);
 		setBlockTextureName("hackery:Glitch");
+		
 	}
 	
-	public void setBlockBoundsBasedOnState(World world, int x, int y, int z){
+	void setBoundsFromMetaData(IBlockAccess ba, int x, int y, int z) {
 		float x1 = .35F;
 		float y1 = .35F;
 		float z1 = .35F;
@@ -29,6 +32,27 @@ public class GlitchBlock extends Block {
 		float y2 = .65F;
 		float z2 = .65F;
 		
+		switch(ba.getBlockMetadata(x, y, z)){
+		case 1:
+			x1 = 0F;
+			x2 = 1F;
+			break;
+		case 2:
+			y1 = 0F;
+			y2 = 1F;
+			break;
+		case 3:
+			y1 = 0F;
+			y2 = 1F;
+			break;
+		default:
+			break;
+		}
+		this.setBlockBounds(x1, y1, z1, x2, y2, z2);
+	}
+	
+	public void setBlockBoundsBasedOnState(World world, int x, int y, int z){
+	
 		if(world.getBlock(x + 1, y, z).equals(this) || world.getBlock(x - 1, y, z).equals(this)){
 			x1 = 0;
 			x2 = 1;
