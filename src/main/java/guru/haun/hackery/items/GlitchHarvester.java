@@ -41,6 +41,7 @@ public class GlitchHarvester extends ItemTool {
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
 		setHarvestLevel("GlitchHarvester",1);
+		setTextureName("hackery:GlitchHarvester");
 	}
 	
 	public Set<String> getToolClasses(ItemStack stack){
