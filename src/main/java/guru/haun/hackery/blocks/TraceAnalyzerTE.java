@@ -1,13 +1,7 @@
 package guru.haun.hackery.blocks;
 
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
 
-public class TraceAnalyzerTE extends BlockContainer{
-
-	protected TraceAnalyzerTE() {
-		super(Material.iron);
-		th
-	}
+public class TraceAnalyzerTE extends TileEntity{
 
 }

@@ -20,5 +20,13 @@ public class TraceAnalyzerBlock extends BlockContainer {
 	public int getRenderType() {
 		return -1;
 	}
+	
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
 
 }
