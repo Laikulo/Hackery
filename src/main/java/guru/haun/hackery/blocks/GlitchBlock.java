@@ -19,7 +19,7 @@ public class GlitchBlock extends Block {
 	public GlitchBlock(Material mat) {
 		super(mat);
 		setResistance(9000000);
-		setHardness(4000);
+		setHardness(4);
 		setBlockName("blockGlitch");
 		setLightOpacity(3);
 		setBlockTextureName("hackery:Glitch");
@@ -28,11 +28,11 @@ public class GlitchBlock extends Block {
 	}
 	
 	public boolean removedByPlayer(World w, EntityPlayer p, int x, int y, int z){
-		if(p.capabilities.isCreativeMode) return false;
-		if(p.getHeldItem() == null) return true;
-		if(p.getHeldItem().getItem() == null) return true;
-		if(p.getHeldItem().getItem() == HackeryMod.glitchHarvester) return false;
-		return false;
+		if(p.capabilities.isCreativeMode);
+		else if(p.getHeldItem() == null) return false;
+		else if(p.getHeldItem().getItem() == null) return false;
+		else if(p.getHeldItem().getItem() != HackeryMod.glitchHarvester) return false;
+		return super.removedByPlayer(w, p, x, y, z);
 	}
 	
 	

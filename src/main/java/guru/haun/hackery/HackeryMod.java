@@ -42,7 +42,7 @@ public class HackeryMod {
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
 		@Override
 		public Item getTabIconItem() {
-			return Items.ender_eye;
+			return Item.getItemFromBlock(HackeryMod.blockGlitchCore);
 		}
 	};
 	

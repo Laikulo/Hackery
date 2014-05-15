@@ -24,13 +24,13 @@ public class GlitchHarvester extends ItemTool {
 		setNoRepair();
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
+		setHarvestLevel("GlitchHarvester",1);
 	}
 	
 	public Set<String> getToolClasses(ItemStack stack){
 		return Sets.newHashSet(new String[] {"GlitchHarvester"});
 	}
  
-	//public int getTool
 	
 	public int getDamageVsEntity(){
 		return 0;
