@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GlitchBlock extends Block {
@@ -70,6 +71,10 @@ public class GlitchBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public boolean isOpaqueCube() {
 		return false;
+	}
+	
+	public boolean getBlocksMovement(IBlockAccess ba, int x, int y, int z){
+		return true;
 	}
 	
 }
