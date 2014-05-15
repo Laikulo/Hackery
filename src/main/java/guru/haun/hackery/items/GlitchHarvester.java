@@ -17,12 +17,15 @@ public class GlitchHarvester extends ItemTool {
 	public GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
 			Set properBlocks) {
 		super(speedOnProper, creationMaterial, properBlocks);
+		setMaxDamage(3);
+		setNoRepair();
+		setMaxStackSize(1);
+		setUnlocalizedName("glitchHarvester");
 	}
 	
 	public GlitchHarvester(){
-		super(speed,ToolMaterial.EMERALD,mineable);
+		this(speed,ToolMaterial.EMERALD,mineable);
 	}
-	
 	
 
 }
