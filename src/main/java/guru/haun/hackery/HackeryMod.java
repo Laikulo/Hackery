@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
+import guru.haun.hackery.blocks.TraceAnalyzerBlock;
 import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.worldgen.GlitchPlacer;
@@ -28,12 +29,16 @@ public class HackeryMod {
 	@Instance("hackery")
 	public static HackeryMod instance;
 	
+	@SidedProxy(clientSide = "guru.haun.hackery.client.ClientProxy", serverSide = "guru.haun.hackery.CommonProxy")
+	
 	public static Logger logger;
 	
 	//Glitch Blocks
 	public static GlitchMaterial		matGlitch			= new GlitchMaterial(MapColor.purpleColor);
 	public static GlitchBlock 			blockGlitch			= new GlitchBlock(matGlitch);
 	public static GlitchCoreBlock		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
+	
+	public static TraceAnalyzerBlock	blockTraceAnalyzer	= new TraceAnalyzerBlock(Material.iron);
 	
 	//Items
 	public static GlitchHarvester		glitchHarvester		= new GlitchHarvester();
@@ -55,6 +60,9 @@ public class HackeryMod {
 
 		blockGlitchCore	.setCreativeTab(creativetab);
 		blockGlitch		.setCreativeTab(creativetab);
+		
+		GameRegistry	.registerBlock(blockTraceAnalyzer,"traceAnalyzer");
+		blockTraceAnalyzer.setCreativeTab(creativetab);
 		
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
 		

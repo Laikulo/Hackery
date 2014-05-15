@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class TraceAnalyzerBlock extends BlockContainer {
 
-	protected TraceAnalyzerBlock(Material p_i45394_1_) {
+	public TraceAnalyzerBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
 	}
 
