@@ -24,9 +24,9 @@ public class GlitchPlacer implements IWorldGenerator {
 		int originZ = cZ << 4 + rng.nextInt(16);
 		int originY = rng.nextInt(47) + 3;
 		
-		int lengthX = (rng.nextInt(1) << 1) + 3;
-		int lengthZ = (rng.nextInt(1) << 1)+ 3;
-		int lengthY = rng.nextInt(3) + 6;
+		int lengthX = (rng.nextInt(2) << 1) + 3;
+		int lengthZ = (rng.nextInt(2) << 1) + 3;
+		int lengthY = (rng.nextInt(2) << 1) + 3;
 		
 		int centerX = originX + (lengthX >> 1);
 		int centerZ = originZ + (lengthZ >> 1);

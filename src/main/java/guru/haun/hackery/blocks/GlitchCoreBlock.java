@@ -8,7 +8,7 @@ public class GlitchCoreBlock extends GlitchBlock {
 		super(mat);
 		setBlockUnbreakable();
 		setBlockName("blockGlitchCore");
+		this.setBlockTextureName("hackery:GlitchCore");
 	}
-	
 
 }

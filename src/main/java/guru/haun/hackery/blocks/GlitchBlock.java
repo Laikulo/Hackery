@@ -8,7 +8,7 @@ public class GlitchBlock extends Block {
 	public GlitchBlock(Material mat) {
 		super(mat);
 		setResistance(9000000);
-		setLightLevel(4);
+		setLightLevel(1);
 		setBlockName("blockGlitch");
 	}
 
