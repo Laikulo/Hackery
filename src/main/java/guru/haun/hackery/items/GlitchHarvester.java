@@ -7,12 +7,14 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.world.World;
 
 public class GlitchHarvester extends ItemTool {
 
-	private static float speed = 9000001;
+	private static float speed = 5;
 	private static Set mineable = Sets.newHashSet(new Block []{ (Block)HackeryMod.blockGlitch});
 	
 	public GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
@@ -22,12 +24,13 @@ public class GlitchHarvester extends ItemTool {
 		setNoRepair();
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
-		setHarvestLevel("GlitchHarvester", 1);
 	}
 	
 	public Set<String> getToolClasses(ItemStack stack){
 		return Sets.newHashSet(new String[] {"GlitchHarvester"});
 	}
+ 
+	//public int getTool
 	
 	public int getDamageVsEntity(){
 		return 0;
