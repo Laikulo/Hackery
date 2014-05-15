@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
+import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.worldgen.GlitchPlacer;
 import net.minecraft.block.Block;
@@ -33,6 +34,9 @@ public class HackeryMod {
 	public static GlitchMaterial		matGlitch			= new GlitchMaterial(MapColor.purpleColor);
 	public static GlitchBlock 			blockGlitch			= new GlitchBlock(matGlitch);
 	public static GlitchCoreBlock		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
+	
+	//Items
+	public static Item					glitchHarvester		= new GlitchHarvester();
 		
 		
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
@@ -54,6 +58,9 @@ public class HackeryMod {
 		
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
 		
+		GameRegistry	.registerItem(glitchHarvester, "glitchHarvester");
+		
+		glitchHarvester	.setCreativeTab(creativetab);
 		this.logger = e.getModLog();
 		
 	}

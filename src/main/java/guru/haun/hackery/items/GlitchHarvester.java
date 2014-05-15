@@ -1,16 +1,28 @@
 package guru.haun.hackery.items;
 
+import guru.haun.hackery.HackeryMod;
+
 import java.util.Set;
 
+import com.google.common.collect.Sets;
+
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemTool;
 
 public class GlitchHarvester extends ItemTool {
 
-	protected GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
+	private static float speed = 200;
+	private static Set mineable = Sets.newHashSet(new Block []{ (Block)HackeryMod.blockGlitch});
+	
+	public GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
 			Set properBlocks) {
-		super(p_i45333_1_, p_i45333_2_, p_i45333_3_);
-		// TODO Auto-generated constructor stub
+		super(speedOnProper, creationMaterial, properBlocks);
 	}
+	
+	public GlitchHarvester(){
+		super(speed,ToolMaterial.EMERALD,mineable);
+	}
+	
 	
 
 }
