@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class GlitchBlock extends Block {
@@ -17,26 +18,35 @@ public class GlitchBlock extends Block {
 		setBlockTextureName("hackery:Glitch");
 	}
 	
-	public void setBlockBoundsBasedOnState(World w, int x, int y, int z) {
-		if(w.getBlock(x+1, y, z).equals(this) || w.getBlock(x-1, y, z).equals(this)){
-			this.setBlockBounds(0F,.35F,.35F,1F,.65F,.65F);
-			return;
-		}
-		if(w.getBlock(x, y+1, z).equals(this) || w.getBlock(x, y-1, z).equals(this)){
-			this.setBlockBounds(.35F,0F,.35F,.65F,1F,.65F);
-			return;
-		}
-		if(w.getBlock(x, y, z+1).equals(this) || w.getBlock(x, y, z-1).equals(this)){
-			this.setBlockBounds(.35F,.35F,0F,.65F,.65F,1F);
-			return;
-		}
-		this.setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
-	}
 	
-	public void onNeighborBlockChange(World w,int x, int y, int z, Block change){
-		this.setBlockBoundsBasedOnState(w,x,y,z);
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z){
+		double x1 = .35F;
+		double y1 = .35F;
+		double z1 = .35F;
+		double x2 = .65F;
+		double y2 = .65F;
+		double z2 = .65F;
+		
+		if(world.getBlock(x + 1, y, z).equals(this) || world.getBlock(x - 1, y, z).equals(this)){
+			x1 = 0;
+			x2 = 1;
+		}else if(world.getBlock(x, y + 1, z).equals(this) || world.getBlock(x, y - 1,z).equals(this)){
+			y1 = 0;
+			y2 = 1;
+		}else if(world.getBlock(x, y, z + 1).equals(this) || world.getBlock(x, y, z - 1).equals(this)){
+			z1 = 0;
+			z2 = 1;
+		}
+		
+		x1 += x;
+		x2 += x;
+		y1 += y;
+		y2 += y;
+		z1 += z;
+		z2 += z;
+		
+		return new AxisAlignedBB.getAABB().getAABB(x1,y1,z1,x2,y2,z2);
 	}
-	
 	
 	
 	@SideOnly(Side.CLIENT)
