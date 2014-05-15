@@ -52,10 +52,14 @@ public class GlitchHarvester extends ItemTool {
 		if(!player.worldObj.isRemote){
 			player.addChatMessage(new ChatComponentText("<").appendSibling(
 					new ChatComponentText("fs|r5g").setChatStyle(new ChatStyle().setObfuscated(true)).appendSibling(
-					new ChatComponentText("That is not a sword, it is a expensive piece of equipment!")))
+					new ChatComponentText("> That is not a sword, it is a expensive piece of equipment!").setChatStyle(new ChatStyle().setObfuscated(false))))
 					);
 		}
-		return true; //stop the attack
+		stack.damageItem(1, player);
+		if(stack.getItemDamage() <= 3){
+			stack.stackSize--;
+		}
+		return true; //stop the attack`
 	}
 	
 	
