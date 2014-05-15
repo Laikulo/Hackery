@@ -9,6 +9,7 @@ public class GlitchCoreBlock extends GlitchBlock {
 		setBlockUnbreakable();
 		setBlockName("blockGlitchCore");
 		setBlockTextureName("hackery:GlitchCore");
+		setLightLevel(0.2F);
 	}
 
 }
