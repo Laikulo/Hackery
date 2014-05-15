@@ -25,4 +25,10 @@ public class GlitchBlock extends Block {
 	public int getRenderBlockPass() {
 		return 1;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
 }
