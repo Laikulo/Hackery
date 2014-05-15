@@ -36,9 +36,9 @@ public class HackeryMod {
 	public static GlitchCoreBlock		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
 	
 	//Items
-	public static Item					glitchHarvester		= new GlitchHarvester();
+	public static GlitchHarvester		glitchHarvester		= new GlitchHarvester();
 		
-		
+	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
 		@Override
 		public Item getTabIconItem() {
@@ -59,6 +59,7 @@ public class HackeryMod {
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
 		
 		GameRegistry	.registerItem(glitchHarvester, "glitchHarvester");
+			glitchHarvester.registerRecipie();
 		
 		glitchHarvester	.setCreativeTab(creativetab);
 		this.logger = e.getModLog();
