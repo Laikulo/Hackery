@@ -1,5 +1,7 @@
 package guru.haun.hackery.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -12,5 +14,14 @@ public class GlitchBlock extends Block {
 		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
 		setLightOpacity(3);
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
 
+	@SideOnly(Side.CLIENT)
+	public int getRenderBlockPass() {
+		return 0;
+	}
 }
