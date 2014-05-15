@@ -45,7 +45,7 @@ public class GlitchBlock extends Block {
 		z1 += z;
 		z2 += z;
 		
-		return new AxisAlignedBB.getAABB().getAABB(x1,y1,z1,x2,y2,z2);
+		return AxisAlignedBB.getAABBPool().getAABB(x1,y1,z1,x2,y2,z2);
 	}
 	
 	
