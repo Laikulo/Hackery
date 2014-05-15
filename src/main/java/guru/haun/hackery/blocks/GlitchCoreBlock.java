@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 
 public class GlitchCoreBlock extends GlitchBlock {
 
-	protected GlitchCoreBlock(Material mat) {
+	public GlitchCoreBlock(Material mat) {
 		super(mat);
 		setBlockUnbreakable();
 	}
