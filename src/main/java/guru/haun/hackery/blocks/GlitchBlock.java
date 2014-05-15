@@ -7,7 +7,6 @@ public class GlitchBlock extends Block {
 
 	protected GlitchBlock(Material mat) {
 		super(mat);
-		setBlockUnbreakable();
 		setResistance(9000000);
 		setLightLevel(4);
 	}

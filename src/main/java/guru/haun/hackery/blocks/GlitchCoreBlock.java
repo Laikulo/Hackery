@@ -6,7 +6,7 @@ public class GlitchCoreBlock extends GlitchBlock {
 
 	protected GlitchCoreBlock(Material mat) {
 		super(mat);
-		// TODO Auto-generated constructor stub
+		setBlockUnbreakable();
 	}
 	
 
