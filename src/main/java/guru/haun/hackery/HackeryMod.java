@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerBlock;
+import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.worldgen.GlitchPlacer;
@@ -17,6 +18,7 @@ import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -29,7 +31,8 @@ public class HackeryMod {
 	@Instance("hackery")
 	public static HackeryMod instance;
 	
-	@SidedProxy(clientSide = "guru.haun.hackery.client.ClientProxy", serverSide = "guru.haun.hackery.CommonProxy")
+	@SidedProxy(clientSide = "guru.haun.hackery.client.HackeryClientProxy", serverSide = "guru.haun.hackery.HackeryCommonProxy")
+	public static HackeryCommonProxy proxy;
 	
 	public static Logger logger;
 	
@@ -55,6 +58,8 @@ public class HackeryMod {
 	@EventHandler
 	public void HackeryPreInit(FMLPreInitializationEvent e){
 		
+		proxy.registerRenderThings();
+		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
 
@@ -63,6 +68,7 @@ public class HackeryMod {
 		
 		GameRegistry	.registerBlock(blockTraceAnalyzer,"traceAnalyzer");
 		blockTraceAnalyzer.setCreativeTab(creativetab);
+		GameRegistry	.registerTileEntity(TraceAnalyzerTE.class, "tileEntitiyTraceAnalyzer");
 		
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);
 		

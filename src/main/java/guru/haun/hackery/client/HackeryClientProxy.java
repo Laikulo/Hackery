@@ -1,5 +1,13 @@
 package guru.haun.hackery.client;
 
-public class HackeryClientProxy {
+import guru.haun.hackery.HackeryCommonProxy;
+import guru.haun.hackery.blocks.TraceAnalyzerRenderer;
+import guru.haun.hackery.blocks.TraceAnalyzerTE;
+import cpw.mods.fml.client.registry.ClientRegistry;
 
+public class HackeryClientProxy extends HackeryCommonProxy {
+	
+	public void registerRenderThings(){
+		ClientRegistry.bindTileEntitySpecialRenderer(TraceAnalyzerTE.class, new TraceAnalyzerRenderer());
+	}
 }
