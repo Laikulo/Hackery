@@ -22,7 +22,7 @@ public class GlitchHarvester extends ItemTool {
 		setNoRepair();
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
-		setHarvestLevel("GlitchHarvester", 0);	
+		setHarvestLevel("GlitchHarvester", 0);
 	}
 	
 	public Set<String> getToolClasses(ItemStack stack){
