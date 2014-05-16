@@ -26,9 +26,13 @@ public class TraceAnalyzerRenderer extends TileEntitySpecialRenderer {
 		ResourceLocation tex = (new ResourceLocation("hackery:textures/blocks/TraceAnalyzer.png"));
 		Minecraft.getMinecraft().renderEngine.bindTexture(tex);
 		
-		
+		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glRotatef(180F, 0F, 0F, 1F);
+		GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_SRC_COLOR);
+		GL11.glEnable(GL11.GL_BLEND);
 		this.model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopMatrix();
 	}
 
