@@ -10,8 +10,8 @@ public class HacKeyHandler {
 	@SubscribeEvent
 	public void onKeyEvent(InputEvent.KeyInputEvent e){
 		if(HacKeyBinds.debugkey.isPressed()){
-			HackeryMod.logger.info("Ping");
 			BSODRenderer.active = !BSODRenderer.active;
+			HackeryMod.logger.warn(String.format("BSOD %s",BSODRenderer.active));
 		}
 	}
 	

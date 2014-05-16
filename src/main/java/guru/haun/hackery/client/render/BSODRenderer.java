@@ -23,14 +23,14 @@ public class BSODRenderer extends Gui {
 			int y = e.resolution.getScaledHeight();
 			int xc = x >> 1;
 			int yc = y >> 1;
-			int h = 287;
-			int w = 350;
+			int w = 128;
+			int h = 168;
 			int xi = w >> 1;
 			int yi = h >> 1;
 			ResourceLocation res = new ResourceLocation("hackery:bsods/Sad Notch.png");
 			GL11.glColor4f(1F, 1F, 1F, 1F);
 			Minecraft.getMinecraft().renderEngine.bindTexture(res);
-			this.drawTexturedModalRect(xc-xi, yc-yi, w, h, 0, 0);
+			this.drawTexturedModalRect(xc-xi, yc-yi, 0, 0, w, h);
 		}
 	}
 	
