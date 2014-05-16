@@ -22,7 +22,7 @@ public class GlitchBlock extends Block {
 		setResistance(9000000);
 		setHardness(4);
 		setBlockName("blockGlitch");
-		setLightOpacity(3);
+		setLightOpacity(0);
 		setBlockTextureName("hackery:Glitch");
 		setBlockBounds(.35F,.35F,.35F,.65F,.65F,.65F);
 		setHarvestLevel("GlitchHarvester", 1);

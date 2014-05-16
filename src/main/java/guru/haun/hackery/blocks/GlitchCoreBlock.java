@@ -11,7 +11,7 @@ public class GlitchCoreBlock extends Block {
 		setResistance(9000000);
 		setBlockName("blockGlitchCore");
 		setBlockTextureName("hackery:GlitchCore");
-		setLightLevel(0.2F);
+		setLightLevel(0.6F);
 	}
 
 }
