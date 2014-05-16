@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.GlitchBlock;
 import guru.haun.hackery.blocks.GlitchCoreBlock;
+import guru.haun.hackery.blocks.GuildedRedstoneBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import guru.haun.hackery.items.GlitchHarvester;
@@ -42,6 +43,7 @@ public class HackeryMod {
 	public static GlitchCoreBlock		blockGlitchCore		= new GlitchCoreBlock(matGlitch);
 	
 	public static TraceAnalyzerBlock	blockTraceAnalyzer	= new TraceAnalyzerBlock(Material.iron);
+	public static GuildedRedstoneBlock	blockGuildedRedstone = new GuildedRedstoneBlock();
 	
 	//Items
 	public static GlitchHarvester		glitchHarvester		= new GlitchHarvester();
@@ -65,6 +67,9 @@ public class HackeryMod {
 
 		blockGlitchCore	.setCreativeTab(creativetab);
 		blockGlitch		.setCreativeTab(creativetab);
+		
+		GameRegistry	.registerBlock(blockGuildedRedstone, "guildedRedstone");
+		blockGuildedRedstone.registerRecipie();
 		
 		GameRegistry	.registerBlock(blockTraceAnalyzer,"traceAnalyzer");
 		blockTraceAnalyzer.setCreativeTab(creativetab);
