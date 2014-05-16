@@ -1,0 +1,7 @@
+tile.blockGlitch.name=Terminated (core dumped)
+tile.blockGlitchCore.name=Glitch Core (creative only)
+tile.guildedRedstone.name=Guilded Redstone
+tile.emeraldGlass.name=Emerald Glass
+tile.traceAnalyzer.name=CoreDump Analyzer
+item.glitchHarvester.name=Glitch Harvester
+exploitSpatialJerk.name=Exploit - SpatialJerk
