@@ -5,6 +5,7 @@ bin/
 eclipse/
 *.class
 *.jar
+!/gradle/wrapper/gradle-wrapper.jar
 *~
 .metadata/
 .settings/
