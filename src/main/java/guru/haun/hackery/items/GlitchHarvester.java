@@ -1,13 +1,18 @@
 package guru.haun.hackery.items;
 
+import guru.haun.hackery.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
+import guru.haun.hackery.IExploit;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -59,7 +64,7 @@ public class GlitchHarvester extends ItemTool {
 		if(stack.getItemDamage() <= 3){
 			stack.stackSize--;
 		}
-		return true; //stop the attack`
+		return true; //stop the attack
 	}
 	
 	
@@ -77,5 +82,12 @@ public class GlitchHarvester extends ItemTool {
 		this(speed,ToolMaterial.EMERALD,mineable);
 	}
 	
+	public void getSubItems(Item i, CreativeTabs tab, List list){
+		List<IExploit> exp = ExploitUtils.getAllExploits();
+		Iterator<IExploit> expi = exp.iterator();
+		while(expi.hasNext()){
+			list.add(new ItemStack(i,1,expi.next().getId()));
+		}
+	}
 
 }
