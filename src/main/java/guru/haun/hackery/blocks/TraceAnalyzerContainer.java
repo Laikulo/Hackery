@@ -34,30 +34,26 @@ public class TraceAnalyzerContainer extends Container {
 	
 	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
 		ItemStack stack = null;
-		Slot slotobj = (Slot) inventorySlots.get(slot);
+		Slot slotObject = (Slot) inventorySlots.get(slot);
 		
-		if(slotobj != null && slotobj.getHasStack()) {
-			ItemStack stackInSlot = slotobj.getStack();
-			stack = stackInSlot.copy();
+		if(slotObject != null && slotObject.getHasStack()){
+			ItemStack slotStack = slotObject.getStack();
+			stack = slotStack.copy();
 			
-			if (slot < 2) {
-				if(!this.mergeItemStack(stackInSlot, 0, 35, true)) {
+			if(slot < 2){ //machine slots
+				if(!this.mergeItemStack(slotStack, 0, 35, true))
 					return null;
-				}
-			}else if(!this.mergeItemStack(stackInSlot, 0, 9, false)) {
+			}else if(!this.mergeItemStack(slotStack, 0, 1, false))
 				return null;
-			}
 			
-			if(stackInSlot.stackSize == 0) {
-				slotobj.putStack(null);
-			}else{
-				slotobj.onSlotChanged();
-			}
+			if(slotStack.stackSize == 0)
+				slotObject.putStack(null);
+			else
+				slotObject.onSlotChanged();
 			
-			if(stackInSlot.stackSize == stack.stackSize) {
-				return null;
-			}
-			slotobj.onPickupFromSlot(player, stackInSlot);
+			if(slotStack.stackSize == stack.stackSize) return null;
+			
+			slotObject.onPickupFromSlot(player, slotStack);
 		}
 		return stack;
 	}
