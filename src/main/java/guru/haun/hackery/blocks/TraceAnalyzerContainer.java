@@ -19,7 +19,7 @@ public class TraceAnalyzerContainer extends Container {
 	}
 	
 	protected void bindPlayerInventory(InventoryPlayer playerInv) {
-		for(int i = 0; o < 3; i++) {
+		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				addSlotToContainer(new Slot(playerInv, j+i*9+9, 8+j*18, 84 + i* 18)); //Main Inventory
 			}
@@ -35,7 +35,32 @@ public class TraceAnalyzerContainer extends Container {
 		
 		if(slotobj != null && slotobj.getHasStack()) {
 			ItemStack stackInSlot = slotobj.getStack();
+			
+			if (slot < 2) {
+				if(!this.mergeItemStack(stackInSlot, 0, 35, true)) {
+					return null;
+				}
+			}else if(!this.mergeItemStack(stackInSlot, 0, 9, false)) {
+				return null;
+			}
+			
+			if(stackInSlot.stackSize == 0) {
+				slotobj.putStack(null);
+			}else{
+				slotobj.onSlotChanged();
+			}
+			
+			if(stackInSlot.stackSize == stack.stackSize) {
+				return null;
+			}
+			slotobj.onPickupFromSlot(player, stackInSlot);
 		}
+		return stack;
+	}
+
+	@Override
+	public boolean canInteractWith(EntityPlayer var1) {
+		return te.isUseableByPlayer(var1);
 	}
 
 }

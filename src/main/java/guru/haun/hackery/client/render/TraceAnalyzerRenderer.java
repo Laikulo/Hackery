@@ -1,4 +1,4 @@
-package guru.haun.hackery.blocks.render;
+package guru.haun.hackery.client.render;
 
 import org.lwjgl.opengl.GL11;
 
