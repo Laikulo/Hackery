@@ -38,6 +38,7 @@ public class TraceAnalyzerContainer extends Container {
 		
 		if(slotobj != null && slotobj.getHasStack()) {
 			ItemStack stackInSlot = slotobj.getStack();
+			stack = stackInSlot.copy();
 			
 			if (slot < 2) {
 				if(!this.mergeItemStack(stackInSlot, 0, 35, true)) {

@@ -37,16 +37,15 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 					this.running = false;
 				}else{
 					this.operationProgress++;
-					HackeryMod.logger.info(String.format("%d", this.operationProgress));
 					this.markDirty();
-					if(this.operationProgress >= this.operationTicks)
+					if(this.operationProgress >= this.operationTicks){
 						processBlock();
 						this.operationProgress = 0;
 						this.running = false;
+					}
 				}
 			}else{
 				if(canProcess()){
-					HackeryMod.logger.info("Could not process");
 					this.operationProgress = 0;
 					this.running = true;
 				}
@@ -56,11 +55,14 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	
 	public void processBlock(){
 		inv[0].stackSize--;
+		if(inv[0].stackSize <= 0)
+			inv[0] = null;
 		inv[1] = new ItemStack(Blocks.stone,1,0).setStackDisplayName("Debug Stone");
 	}
 	
 	public boolean canProcess(){
-		return this.inv[0] != null && this.inv[0].getItem() == Item.getItemFromBlock(HackeryMod.blockGlitch) && this.inv[1] != null;
+		return this.inv[0] != null && this.inv[1] == null &&
+				this.inv[0].getItem() == Item.getItemFromBlock(HackeryMod.blockGlitch);
 	}
 	
 	public int getScaledProgress(int scalar){
