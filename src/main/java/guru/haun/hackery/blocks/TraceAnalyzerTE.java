@@ -29,9 +29,13 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	
 	public void updateEntity() {
 		//Processing Code- server side ONLY
-		if(worldObj.isRemote){
+		if(!worldObj.isRemote){
 			if(this.running){
-				if(this.operationProgress >= this.operationTicks);
+				this.operationProgress++;
+				HackeryMod.logger.info(String.Format("OP: %d", this.operationProgress));
+				this.markDirty();
+				if(this.operationProgress >= this.operationTicks)
+					processBlock();
 			}
 		}
 	}
