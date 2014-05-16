@@ -12,6 +12,10 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 
 	private ItemStack[] inv;
 	
+	public TraceAnalyzerTE() {
+		inv = new ItemStack[2];
+	}
+	
 	@Override
 	public int getSizeInventory() {
 		return inv.length;
