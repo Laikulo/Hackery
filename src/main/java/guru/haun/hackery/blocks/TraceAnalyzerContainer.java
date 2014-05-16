@@ -1,5 +1,6 @@
 package guru.haun.hackery.blocks;
 
+import guru.haun.hackery.blocks.slots.OutputSlot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -14,7 +15,7 @@ public class TraceAnalyzerContainer extends Container {
 		this.te = te;
 		
 			addSlotToContainer(new Slot(te,0,49,35));
-			addSlotToContainer(new Slot(te,1,116,35));
+			addSlotToContainer(new OutputSlot(te,1,116,35));
 			bindPlayerInventory(playerInv);
 	}
 	
