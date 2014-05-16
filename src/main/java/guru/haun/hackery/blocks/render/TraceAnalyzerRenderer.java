@@ -1,4 +1,4 @@
-package guru.haun.hackery.blocks;
+package guru.haun.hackery.blocks.render;
 
 import org.lwjgl.opengl.GL11;
 
@@ -26,11 +26,10 @@ public class TraceAnalyzerRenderer extends TileEntitySpecialRenderer {
 		ResourceLocation tex = (new ResourceLocation("hackery:textures/blocks/TraceAnalyzer.png"));
 		Minecraft.getMinecraft().renderEngine.bindTexture(tex);
 		
-		GL11.glPushMatrix();
+		
 		GL11.glRotatef(180F, 0F, 0F, 1F);
-		this.model.render((Entity) null, 0F, 0F, -.1F, 0F, 0F, 0.0655F);
+		this.model.render(null, 0F, 0F, -.1F, 0F, 0F, 1F);
 		GL11.glPopMatrix();
-		GL11.glPopAttrib();
 	}
 
 }

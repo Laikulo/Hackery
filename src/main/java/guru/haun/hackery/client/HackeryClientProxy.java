@@ -1,7 +1,7 @@
 package guru.haun.hackery.client;
 
 import guru.haun.hackery.HackeryCommonProxy;
-import guru.haun.hackery.blocks.TraceAnalyzerRenderer;
+import guru.haun.hackery.blocks.render.TraceAnalyzerRenderer;
 import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import cpw.mods.fml.client.registry.ClientRegistry;
 

@@ -23,7 +23,7 @@ public class ModelTraceAnalyzer extends ModelBase
     textureHeight = 64;
     
       OuterWall = new ModelRenderer(this, 0, 24);
-      OuterWall.addBox(-8F, -8F, -8F, 16, 16, 16);
+      OuterWall.addBox(-8F, -7F, -8F, 16, 16, 16);
       OuterWall.setRotationPoint(0F, 16F, 0F);
       OuterWall.setTextureSize(64, 64);
       OuterWall.mirror = true;
