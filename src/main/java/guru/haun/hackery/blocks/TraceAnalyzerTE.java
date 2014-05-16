@@ -52,21 +52,20 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	}
 
 	@Override
-	public void setInventorySlotContents(int var1, ItemStack var2) {
-		// TODO Auto-generated method stub
-		
+	public void setInventorySlotContents(int slot, ItemStack stack) {
+		inv[slot] = stack;
+		if(stack != null && stack.stackSize > getInventoryStackLimit())
+			stack.stackSize = getInventoryStackLimit();
 	}
 
 	@Override
 	public String getInventoryName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "guru.haun.hackers.tracer";
 	}
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -123,8 +122,4 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	}
 	
 	
-	public String getInvName() {
-		return "guru.haun.hackers.tracer";
-	}
-
 }

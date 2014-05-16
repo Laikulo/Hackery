@@ -16,7 +16,7 @@ public class TraceAnalyzerGUI extends GuiContainer {
 	}
 	
 	protected void drawGuiContainerForegroundLayer(int a, int b){
-		fontRendererObj.drawString("StackTrace Analyzer", 8, 8, 4210752);
+		fontRendererObj.drawString("CoreDump Analyzer", 8, 8, 4210752);
 	}
 	
 	protected void drawGuiContainerBackgroundLayer(float a, int b, int c) {

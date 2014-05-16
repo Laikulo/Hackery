@@ -13,7 +13,7 @@ public class TraceAnalyzerContainer extends Container {
 	public TraceAnalyzerContainer(InventoryPlayer playerInv, TraceAnalyzerTE te){
 		this.te = te;
 		
-			addSlotToContainer(new Slot(te,0,56,35));
+			addSlotToContainer(new Slot(te,0,49,35));
 			addSlotToContainer(new Slot(te,1,116,35));
 			bindPlayerInventory(playerInv);
 	}
