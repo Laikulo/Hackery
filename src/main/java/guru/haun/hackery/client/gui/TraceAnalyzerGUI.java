@@ -10,9 +10,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 public class TraceAnalyzerGUI extends GuiContainer {
+	
+	private TraceAnalyzerTE te;
 
 	public TraceAnalyzerGUI (InventoryPlayer inventoryPlayer, TraceAnalyzerTE te) {
 		super(new TraceAnalyzerContainer(inventoryPlayer,te));
+		this.te = te;
 	}
 	
 	protected void drawGuiContainerForegroundLayer(int a, int b){
@@ -27,6 +30,8 @@ public class TraceAnalyzerGUI extends GuiContainer {
 		int x = (width - xSize) /2;
 		int y = (height - ySize) /2;
 		this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+		int prog = this.te.getScaledProgress(24);		
+		this.drawTexturedModalRect(x + 79, y + 34, 176, 0, prog + 1, 16);
 		
 	}
 }

@@ -1,5 +1,6 @@
 package guru.haun.hackery.blocks;
 
+import guru.haun.hackery.HackeryMod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -17,6 +18,27 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	
 	public TraceAnalyzerTE() {
 		inv = new ItemStack[2];
+		// TODO THIS IS DEBUG!!!
+		this.running = true;
+		this.operationProgress = 0;
+	}
+	
+	public boolean canUpdate() {
+		return true;
+	}
+	
+	public void updateEntity() {
+		//Processing Code- server side ONLY
+		if(worldObj.isRemote){
+			if(this.running){
+				if(this.operationProgress >= this.operationTicks);
+			}
+		}
+	}
+	
+	public void processBlock(){
+		//TODO DEBUG HERE!
+		this.operationProgress = 0;
 	}
 	
 	public int getScaledProgress(int scalar){
