@@ -14,23 +14,20 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 
 public class BSODRenderer extends Gui {
-	private static boolean active = false;
+	public static boolean active = false;
 	
 	@SubscribeEvent
 	public void onRenderGameOverlayEvent(RenderGameOverlayEvent e){
-		if(HacKeyBinds.debugkey.isPressed()){
-			active = !active;
-		}
 		if(active){
 			int x = e.resolution.getScaledWidth();
 			int y = e.resolution.getScaledHeight();
 			int xc = x >> 1;
 			int yc = y >> 1;
 			int h = 287;
-			int w = 234;
+			int w = 350;
 			int xi = w >> 1;
 			int yi = h >> 1;
-			ResourceLocation res = new ResourceLocation("hackery:bsods/Sac_Mac.png");
+			ResourceLocation res = new ResourceLocation("hackery:bsods/Sad Notch.png");
 			GL11.glColor4f(1F, 1F, 1F, 1F);
 			Minecraft.getMinecraft().renderEngine.bindTexture(res);
 			this.drawTexturedModalRect(xc-xi, yc-yi, w, h, 0, 0);
