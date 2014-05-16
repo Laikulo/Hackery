@@ -15,7 +15,8 @@ import cpw.mods.fml.common.gameevent.InputEvent;
 
 public class BSODRenderer extends Gui {
 	public static boolean active = false;
-	private boolean oldGuiState;
+	private boolean laststate;
+	private boolean oldguistate;
 	
 	@SubscribeEvent
 	public void onRenderGameOverlayEvent(RenderGameOverlayEvent e){
@@ -30,6 +31,7 @@ public class BSODRenderer extends Gui {
 			int yi = h >> 1;
 			ResourceLocation res = new ResourceLocation("hackery:bsods/Sad Notch.png");
 			this.drawRect(0, 0, x, y, 0xFF000000);
+			Tessellator tess = Tessellator.instance;
 			GL11.glColor4f(1F, 1F, 1F, 1F);
 			Minecraft.getMinecraft().renderEngine.bindTexture(res);
 			this.drawTexturedModalRect(xc-xi, yc-yi, 0, 0, w, h);
