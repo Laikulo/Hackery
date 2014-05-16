@@ -8,6 +8,7 @@ import guru.haun.hackery.blocks.GlitchCoreBlock;
 import guru.haun.hackery.blocks.GuildedRedstoneBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerTE;
+import guru.haun.hackery.blocks.gui.GuiHandler;
 import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.worldgen.GlitchPlacer;
@@ -24,6 +25,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
@@ -80,6 +82,7 @@ public class HackeryMod {
 		GameRegistry	.registerBlock(blockTraceAnalyzer,"traceAnalyzer");
 		blockTraceAnalyzer.setCreativeTab(creativetab);
 		blockTraceAnalyzer.registerRecipie();
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		
 		GameRegistry	.registerTileEntity(TraceAnalyzerTE.class, "tileEntitiyTraceAnalyzer");
 		

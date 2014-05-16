@@ -16,7 +16,7 @@ public class TraceAnalyzerGUI extends GuiContainer {
 		fontRendererObj.drawString("StackTrace Analyzer", 8, 8, 4210752);
 	}
 	
-	protected void drawGuiContianerBacktroundLayer(float a, int b, int c) {
+	protected void drawGuiContainerBackgroundLayer(float a, int b, int c) {
 		int x = (width - xSize) /2;
 		int y = (height - ySize) /2;
 		this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
