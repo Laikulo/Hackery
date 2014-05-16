@@ -7,11 +7,16 @@ import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import guru.haun.hackery.client.render.BSODRenderer;
 import guru.haun.hackery.client.render.TraceAnalyzerRenderer;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class HackeryClientProxy extends HackeryCommonProxy {
 	
 	public void registerRenderThings(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TraceAnalyzerTE.class, new TraceAnalyzerRenderer());
 		MinecraftForge.EVENT_BUS.register(new BSODRenderer());
+	}
+	
+	public void registerKeyBinds(){
+		FMLCommonHandler.instance().bus().register(new HacKeyBinds());
 	}
 }
