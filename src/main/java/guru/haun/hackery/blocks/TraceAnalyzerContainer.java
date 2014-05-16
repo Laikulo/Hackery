@@ -4,12 +4,14 @@ import guru.haun.hackery.blocks.slots.OutputSlot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class TraceAnalyzerContainer extends Container {
 
 	protected TraceAnalyzerTE te;
+	private int lastprogress = 0;
 
 	public TraceAnalyzerContainer(InventoryPlayer playerInv, TraceAnalyzerTE te){
 		this.te = te;
@@ -64,4 +66,20 @@ public class TraceAnalyzerContainer extends Container {
 		return te.isUseableByPlayer(var1);
 	}
 
+	public void updateProgressBar(int par1, int par2){
+		this.te.operationProgress = par2;
+	}
+	
+	public void addCraftingToCrafters(ICrafting ic){
+		super.addCraftingToCrafters(ic);
+		ic.sendProgressBarUpdate(this, 0, this.te.operationProgress);
+	}
+	
+	public void detectAndSendChanges(){
+		super.detectAndSendChanges();
+		ICrafting ic = (ICrafting) this.crafters.get(0);
+		if(this.lastprogress != this.te.operationProgress)
+			ic.sendProgressBarUpdate(this, 0, this.te.operationProgress);
+		this.lastprogress = this.te.operationProgress;
+	}
 }

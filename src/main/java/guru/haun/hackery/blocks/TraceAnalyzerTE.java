@@ -13,7 +13,7 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 
 	private ItemStack[] inv;
 	private static int operationTicks = 300;
-	private int operationProgress;
+	public int operationProgress;
 	private boolean running;
 	
 	public TraceAnalyzerTE() {
@@ -32,7 +32,6 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		if(!worldObj.isRemote){
 			if(this.running){
 				this.operationProgress++;
-				HackeryMod.logger.info(String.Format("OP: %d", this.operationProgress));
 				this.markDirty();
 				if(this.operationProgress >= this.operationTicks)
 					processBlock();
@@ -43,6 +42,10 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	public void processBlock(){
 		//TODO DEBUG HERE!
 		this.operationProgress = 0;
+	}
+	
+	public boolean canProcess(){
+		
 	}
 	
 	public int getScaledProgress(int scalar){
