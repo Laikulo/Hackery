@@ -5,7 +5,11 @@ public class HackeryCommonProxy {
 	
 	public void registerRenderThings() {
 		;
+	}
 		
+	public void registerKeyBinds() {
+		;
 	}
 
+		
 }

@@ -8,11 +8,15 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 
 public class BSODRenderer {
+	private static boolean active = false;
 	
 	@SubscribeEvent
 	public void onRenderGameOverlayEvent(RenderGameOverlayEvent e){
 		if(HacKeyBinds.debugkey.isPressed()){
-			HackeryMod.logger.info("PING");
+			active = !active;
+		}
+		if(active){
+			
 		}
 	}
 	

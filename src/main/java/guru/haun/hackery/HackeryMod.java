@@ -68,6 +68,7 @@ public class HackeryMod {
 	public void HackeryPreInit(FMLPreInitializationEvent e){
 		
 		proxy.registerRenderThings();
+		proxy.registerKeyBinds();
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
