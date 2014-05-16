@@ -19,6 +19,7 @@ public class TraceAnalyzerBlock extends BlockContainer {
 	
 	public TraceAnalyzerBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
+		setBlockName("traceAnalyzer");
 	}
 
 	@Override
