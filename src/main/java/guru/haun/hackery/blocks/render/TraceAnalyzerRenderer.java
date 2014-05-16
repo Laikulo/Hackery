@@ -28,7 +28,7 @@ public class TraceAnalyzerRenderer extends TileEntitySpecialRenderer {
 		
 		
 		GL11.glRotatef(180F, 0F, 0F, 1F);
-		this.model.render(null, 0F, 0F, -.1F, 0F, 0F, 1F);
+		this.model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
 		GL11.glPopMatrix();
 	}
 
