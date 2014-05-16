@@ -2,7 +2,9 @@ package guru.haun.hackery.blocks;
 
 import guru.haun.hackery.HackeryMod;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -18,8 +20,7 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	
 	public TraceAnalyzerTE() {
 		inv = new ItemStack[2];
-		// TODO THIS IS DEBUG!!!
-		this.running = true;
+		this.running = false;
 		this.operationProgress = 0;
 	}
 	
@@ -31,21 +32,35 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		//Processing Code- server side ONLY
 		if(!worldObj.isRemote){
 			if(this.running){
-				this.operationProgress++;
-				this.markDirty();
-				if(this.operationProgress >= this.operationTicks)
-					processBlock();
+				if(!canProcess()){
+					this.operationProgress = 0;
+					this.running = false;
+				}else{
+					this.operationProgress++;
+					HackeryMod.logger.info(String.format("%d", this.operationProgress));
+					this.markDirty();
+					if(this.operationProgress >= this.operationTicks)
+						processBlock();
+						this.operationProgress = 0;
+						this.running = false;
+				}
+			}else{
+				if(canProcess()){
+					HackeryMod.logger.info("Could not process");
+					this.operationProgress = 0;
+					this.running = true;
+				}
 			}
 		}
 	}
 	
 	public void processBlock(){
-		//TODO DEBUG HERE!
-		this.operationProgress = 0;
+		inv[0].stackSize--;
+		inv[1] = new ItemStack(Blocks.stone,1,0).setStackDisplayName("Debug Stone");
 	}
 	
 	public boolean canProcess(){
-		
+		return this.inv[0] != null && this.inv[0].getItem() == Item.getItemFromBlock(HackeryMod.blockGlitch) && this.inv[1] != null;
 	}
 	
 	public int getScaledProgress(int scalar){
