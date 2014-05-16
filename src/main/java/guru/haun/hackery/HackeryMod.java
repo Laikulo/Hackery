@@ -79,6 +79,8 @@ public class HackeryMod {
 		
 		GameRegistry	.registerBlock(blockTraceAnalyzer,"traceAnalyzer");
 		blockTraceAnalyzer.setCreativeTab(creativetab);
+		blockTraceAnalyzer.registerRecipie();
+		
 		GameRegistry	.registerTileEntity(TraceAnalyzerTE.class, "tileEntitiyTraceAnalyzer");
 		
 		GameRegistry	.registerWorldGenerator(new GlitchPlacer(), 0);

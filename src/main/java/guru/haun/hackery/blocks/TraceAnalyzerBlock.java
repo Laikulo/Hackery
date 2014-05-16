@@ -1,13 +1,21 @@
 package guru.haun.hackery.blocks;
 
+import guru.haun.hackery.HackeryMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class TraceAnalyzerBlock extends BlockContainer {
 
+	
+	public void registerRecipie() {
+		GameRegistry.addShapelessRecipe(new ItemStack(this,1,0), new ItemStack(HackeryMod.blockEmeraldGlass,1,0), new ItemStack(HackeryMod.blockGuildedRedstone,1,0) );
+	}
+	
 	public TraceAnalyzerBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
 	}
