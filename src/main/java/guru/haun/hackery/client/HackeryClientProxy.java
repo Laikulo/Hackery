@@ -18,5 +18,6 @@ public class HackeryClientProxy extends HackeryCommonProxy {
 	
 	public void registerKeyBinds(){
 		FMLCommonHandler.instance().bus().register(new HacKeyBinds());
+		FMLCommonHandler.instance().bus().register(new HacKeyHandler());
 	}
 }

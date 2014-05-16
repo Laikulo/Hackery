@@ -2,7 +2,10 @@ package guru.haun.hackery.client;
 
 import org.lwjgl.input.Keyboard;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 
 public class HacKeyBinds {
