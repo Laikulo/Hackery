@@ -93,15 +93,34 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	public void readFromNBT(NBTTagCompound nbt){
 		super.readFromNBT(nbt);
 		NBTTagList taglist = nbt.getTagList("inventory",Constants.NBT.TAG_COMPOUND);
-		for(int i = 0; i < inv.length; i++) {
-			ItemStack stack = inv[i];
-			if(stack != null) {
-				NBTTagCompound tag = new NBTTagCompound();
-				tag.setByte("slot", (byte) i);
-				stack.writeToNBT(tag)
-				taglist.appendTag(tag);
+		for(int i = 0; i < taglist.tagCount(); i++){
+			NBTTagCompound tag = (NBTTagCompound) (taglist.getCompoundTagAt(i));
+			byte slot = tag.getByte("slot");
+			if(slot >= 0 && slot < inv.length){
+				inv[slot] = ItemStack.loadItemStackFromNBT(tag);
 			}
 		}
+	}
+	
+	public void writeToNBT(NBTTagCompound nbt){
+		super.writeToNBT(nbt);
+		
+		NBTTagList itemList = new NBTTagList();
+		for(int i = 0; i < inv.length; i++){
+			ItemStack stack = inv[i];
+			if( stack != null ) {
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setByte("slot", (byte) i);
+				stack.writeToNBT(tag);
+				itemList.appendTag(tag);
+			}
+		}
+		nbt.setTag("inventory",itemList);
+	}
+	
+	
+	public String getInvName() {
+		return "guru.haun.hackers.tracer";
 	}
 
 }
