@@ -2,9 +2,12 @@ package guru.haun.hackery.blocks;
 
 import guru.haun.hackery.HackeryMod;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -20,6 +23,7 @@ public class TraceAnalyzerBlock extends BlockContainer {
 	public TraceAnalyzerBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
 		setBlockName("traceAnalyzer");
+		setBlockTextureName("hackery:TraceAnalyzerBlock");
 	}
 
 	@Override
@@ -46,4 +50,9 @@ public class TraceAnalyzerBlock extends BlockContainer {
 		return true;
 	}
 
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iIconR){
+		super.registerBlockIcons(iIconR);
+	}
 }
