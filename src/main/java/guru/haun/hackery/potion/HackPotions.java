@@ -3,6 +3,7 @@ package guru.haun.hackery.potion;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 
 public class HackPotions {
@@ -12,7 +13,7 @@ public class HackPotions {
 	public static int potionGFId=210;
 	public static Potion potionGF;
 	
-	public void register() {
+	public static void register() {
 		Potion[] potionTypes = null;
 		Class clazz = Potion.class;
 		Field[] fields = clazz.getDeclaredFields();
@@ -32,7 +33,8 @@ public class HackPotions {
 			}
 		}
 		
+
 		potionGF = new HackPotion(potionGFId, true, 0).setPotionName("GlitchFest");
 	}
-	
+
 }

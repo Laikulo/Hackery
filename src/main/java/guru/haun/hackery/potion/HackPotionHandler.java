@@ -1,6 +1,7 @@
 package guru.haun.hackery.potion;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 public class HackPotionHandler {
@@ -14,4 +15,5 @@ public class HackPotionHandler {
 			}
 		}
 	}
+	
 }

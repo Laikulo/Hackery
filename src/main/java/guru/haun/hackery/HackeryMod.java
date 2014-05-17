@@ -74,6 +74,7 @@ public class HackeryMod {
 	@EventHandler
 	public void HackeryPreInit(FMLPreInitializationEvent e){
 		
+		this.logger = e.getModLog();
 		proxy.registerRenderThings();
 		proxy.registerKeyBinds();
 		
@@ -110,7 +111,8 @@ public class HackeryMod {
 		ExploitUtils.addExploit(new CrashExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
-		this.logger = e.getModLog();
+		
+		HackPotions.register();
 		
 	}
 	
