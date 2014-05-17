@@ -17,7 +17,6 @@ public class HackPotionHandler {
 	private static boolean laststate = false;
 	private static long lasttick = 0;
 	private static int nexttick = 10;
-	private static int nextheadtick = 5;
 	private static long lastheadtick = 0;
 	private static float oldeye;
 	
@@ -32,10 +31,9 @@ public class HackPotionHandler {
 	private void jerkHead(){
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.thePlayer;
-		HackeryMod.logger.info(String.format("Before: %d %d", player.rotationPitch, player.rotationYawHead));
-		player.rotationYawHead =  (player.rotationYawHead + (20f * (float) Math.random()));
-		player.rotationPitch = (player.rotationPitch + (20f * (float) Math.random()));
-		HackeryMod.logger.info(String.format("After: %d %d", player.rotationPitch, player.rotationYawHead));
+		player.rotationYawHead =  (player.rotationYawHead + ((60f * (float) Math.random()) - 30f));
+		player.rotationYaw =  (player.rotationYaw + ((60f * (float) Math.random()) - 30f));
+		player.rotationPitch = (player.rotationPitch + ((60f * (float) Math.random()) - 30f));
 	}
 	
 	@SubscribeEvent
@@ -59,11 +57,9 @@ public class HackPotionHandler {
 				lasttick = ticks;
 				nexttick = (int) (20f * Math.random());
 			}
-			if(ticks != lastheadtick && (ticks % 10 + nextheadtick) == 0){
-				HackeryMod.logger.info("Ping");
+			if(ticks != lastheadtick && (ticks & 1) == 0){
 				jerkHead();
 				lastheadtick = ticks;
-				nextheadtick = (int) (10f * Math.random());
 			}
 		}
 		
