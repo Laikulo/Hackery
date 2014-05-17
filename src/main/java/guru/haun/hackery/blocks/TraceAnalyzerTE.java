@@ -1,5 +1,8 @@
 package guru.haun.hackery.blocks;
 
+import java.util.Random;
+
+import guru.haun.hackery.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -57,7 +60,8 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		inv[0].stackSize--;
 		if(inv[0].stackSize <= 0)
 			inv[0] = null;
-		inv[1] = new ItemStack(Blocks.stone,1,0).setStackDisplayName("Debug Stone");
+		if(new Random().nextBoolean())
+		inv[1] = new ItemStack(HackeryMod.itemExploit,1,ExploitUtils.pickExploit().getId());
 	}
 	
 	public boolean canProcess(){
