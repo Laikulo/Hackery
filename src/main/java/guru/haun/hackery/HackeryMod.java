@@ -11,6 +11,7 @@ import guru.haun.hackery.blocks.GuildedRedstoneBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import guru.haun.hackery.blocks.gui.GuiHandler;
+import guru.haun.hackery.exploits.CrashExploit;
 import guru.haun.hackery.exploits.RandomTpExploit;
 import guru.haun.hackery.items.ExploitItem;
 import guru.haun.hackery.items.GlitchHarvester;
@@ -106,6 +107,7 @@ public class HackeryMod {
 		glitchHarvester	.setCreativeTab(creativetab);
 		
 		ExploitUtils.addExploit(new RandomTpExploit());
+		ExploitUtils.addExploit(new CrashExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		this.logger = e.getModLog();
