@@ -4,5 +4,6 @@ tile.guildedRedstone.name=Guilded Redstone
 tile.emeraldGlass.name=Emerald Glass
 tile.traceAnalyzer.name=CoreDump Analyzer
 item.glitchHarvester.name=Glitch Harvester
-exploitSpatialJerk.name=Exploit - SpatialJerk
+exploitSpatialJerk.name=Exploit - Spatial Jerk
+exploitCrash.Exploit - Renderer Crash
 itemGroup.tabHackery=Hackery

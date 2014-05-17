@@ -2,7 +2,7 @@ package guru.haun.hackery.items;
 
 import guru.haun.hackery.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
-import guru.haun.hackery.IExploit;
+import guru.haun.hackery.exploits.IExploit;
 
 import java.util.Iterator;
 import java.util.List;
@@ -82,12 +82,4 @@ public class GlitchHarvester extends ItemTool {
 		this(speed,ToolMaterial.EMERALD,mineable);
 	}
 	
-	public void getSubItems(Item i, CreativeTabs tab, List list){
-		List<IExploit> exp = ExploitUtils.getAllExploits();
-		Iterator<IExploit> expi = exp.iterator();
-		while(expi.hasNext()){
-			list.add(new ItemStack(i,1,expi.next().getId()));
-		}
-	}
-
 }
