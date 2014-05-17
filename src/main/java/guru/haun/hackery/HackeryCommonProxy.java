@@ -10,6 +10,10 @@ public class HackeryCommonProxy {
 	public void registerKeyBinds() {
 		;
 	}
+	
+	public void setBSODState(boolean state) {
+		;
+	}
 
 		
 }
