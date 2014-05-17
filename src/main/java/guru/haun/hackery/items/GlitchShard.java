@@ -1,5 +1,11 @@
 package guru.haun.hackery.items;
 
-public class GlitchShard {
+import net.minecraft.item.Item;
 
+public class GlitchShard extends Item {
+	
+	public GlitchShard(){
+		setTextureName("hackery:GlitchShard");
+		setUnlocalizedName("shardGlitch");
+	}
 }

@@ -15,6 +15,8 @@ import guru.haun.hackery.exploits.CrashExploit;
 import guru.haun.hackery.exploits.RandomTpExploit;
 import guru.haun.hackery.items.ExploitItem;
 import guru.haun.hackery.items.GlitchHarvester;
+import guru.haun.hackery.items.GlitchPowder;
+import guru.haun.hackery.items.GlitchShard;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.potion.HackPotions;
 import guru.haun.hackery.worldgen.GlitchPlacer;
@@ -62,6 +64,8 @@ public class HackeryMod {
 	//Items
 	public static GlitchHarvester		glitchHarvester		= new GlitchHarvester();
 	public static ExploitItem			itemExploit			= new ExploitItem();
+	public static GlitchShard			shardGlitch			= new GlitchShard();
+	public static GlitchPowder			powderGlitch;
 		
 	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
@@ -105,13 +109,18 @@ public class HackeryMod {
 		
 		GameRegistry	.registerItem(glitchHarvester, "glitchHarvester");
 			glitchHarvester.registerRecipie();
-		
 		glitchHarvester	.setCreativeTab(creativetab);
 		
 		ExploitUtils.addExploit(new RandomTpExploit());
 		ExploitUtils.addExploit(new CrashExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
+		
+		GameRegistry.registerItem(shardGlitch, "glitchShard");
+		shardGlitch.setCreativeTab(creativetab);
+		
+		powderGlitch = new GlitchPowder(true);
+		
 		
 		HackPotions.register();
 		

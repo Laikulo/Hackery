@@ -44,7 +44,7 @@ public class GlitchHarvester extends ItemTool {
 	public GlitchHarvester(float speedOnProper, ToolMaterial creationMaterial,
 			Set properBlocks) {
 		super(speedOnProper, creationMaterial, properBlocks);
-		setMaxDamage(3);
+		setMaxDamage(7);
 		setNoRepair();
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");

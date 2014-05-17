@@ -17,7 +17,7 @@ import net.minecraftforge.common.util.Constants;
 public class TraceAnalyzerTE extends TileEntity implements IInventory {
 
 	private ItemStack[] inv;
-	private static int operationTicks = 300;
+	private static int operationTicks = 30;
 	public int operationProgress;
 	private boolean running;
 	
@@ -60,10 +60,10 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		inv[0].stackSize--;
 		if(inv[0].stackSize <= 0)
 			inv[0] = null;
-		if(new Random().nextBoolean())
+		if(new Random().nextInt(3) == 0)
 			inv[1] = new ItemStack(HackeryMod.itemExploit,1,ExploitUtils.pickExploit().getId());
-		else
-			;
+		else if (new Random().nextBoolean())
+			inv[1] = new ItemStack(HackeryMod.shardGlitch,1,0);
 	}
 	
 	public boolean canProcess(){
