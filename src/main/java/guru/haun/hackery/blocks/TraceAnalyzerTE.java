@@ -61,7 +61,9 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		if(inv[0].stackSize <= 0)
 			inv[0] = null;
 		if(new Random().nextBoolean())
-		inv[1] = new ItemStack(HackeryMod.itemExploit,1,ExploitUtils.pickExploit().getId());
+			inv[1] = new ItemStack(HackeryMod.itemExploit,1,ExploitUtils.pickExploit().getId());
+		else
+			;
 	}
 	
 	public boolean canProcess(){

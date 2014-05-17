@@ -14,8 +14,7 @@ public class HacKeyHandler {
 	@SubscribeEvent
 	public void onKeyEvent(InputEvent.KeyInputEvent e){
 		if(HacKeyBinds.debugkey.isPressed()){
-			ResourceLocation shader = new ResourceLocation("minecraft:shaders/post/sobel.json");
-			HaClientUtils.setShader(shader);
+			Minecraft.getMinecraft().displayGuiScreen(new GuiBSOD());
 		}
 	}
 	
