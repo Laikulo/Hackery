@@ -10,7 +10,7 @@ import cpw.mods.fml.common.network.FMLIndexedMessageToMessageCodec;
 public class HacketHandler extends FMLIndexedMessageToMessageCodec<IPacket>{
 
 	public static void writeString(ByteBuf buff, String string){
-		if(string != null) {
+		if(string == null) {
 			buff.writeInt(0);
 		}else{
 			for(int i = 0 ;i < string.length() ; i++){
