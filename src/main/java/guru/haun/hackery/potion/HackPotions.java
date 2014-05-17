@@ -1,5 +1,7 @@
 package guru.haun.hackery.potion;
 
+import guru.haun.hackery.HackeryMod;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -20,7 +22,7 @@ public class HackPotions {
 		for(Field f : fields){
 			if(f.getName().equals("potionTypes") || f.getName().equals("field_76425_a")){
 				try{
-					Field modifiers = clazz.getDeclaredField("modifiers");
+					Field modifiers = Field.class.getDeclaredField("modifiers");
 					modifiers.setAccessible(true);
 					modifiers.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					potionTypes = (Potion[]) f.get(null);
@@ -28,7 +30,8 @@ public class HackPotions {
 					System.arraycopy(potionTypes, 0, newPotionTypes, 0, potionTypes.length);
 					f.set(null, newPotionTypes);
 				}catch (Exception e){
-					
+					HackeryMod.logger.error("Something went wrong while making the potion array bigger..");
+					e.printStackTrace();
 				}
 			}
 		}

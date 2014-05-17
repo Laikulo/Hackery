@@ -16,6 +16,7 @@ import guru.haun.hackery.exploits.RandomTpExploit;
 import guru.haun.hackery.items.ExploitItem;
 import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.material.GlitchMaterial;
+import guru.haun.hackery.potion.HackPotions;
 import guru.haun.hackery.worldgen.GlitchPlacer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
