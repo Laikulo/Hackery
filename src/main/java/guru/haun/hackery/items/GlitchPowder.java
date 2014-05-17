@@ -9,11 +9,16 @@ public class GlitchPowder extends Item{
 	
 	public GlitchPowder(boolean register) {
 		setUnlocalizedName("powderGlitch");
-		setTextureName("GlitchPowder");
+		setTextureName("hackery:GlitchPowder");
 		if(register){
 			GameRegistry.registerItem(this, "glitchPowder");
 			GameRegistry.addShapelessRecipe(new ItemStack(this, 1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0));
 		}
+	}
+	
+	@Override
+	public boolean isPotionIngredient(ItemStack is){
+		return true;
 	}
 
 }
