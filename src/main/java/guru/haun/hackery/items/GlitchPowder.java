@@ -20,5 +20,9 @@ public class GlitchPowder extends Item{
 	public boolean isPotionIngredient(ItemStack is){
 		return true;
 	}
+	
+	public String getPotionEffect(ItemStack is){
+		return "";
+	}
 
 }
