@@ -1,5 +1,7 @@
 package guru.haun.hackery;
 
+import java.util.EnumMap;
+
 import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.EmeraldGlassBlock;
@@ -27,8 +29,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 
 @Mod(modid="hackery", name="Hackers", version="modjam")
@@ -41,6 +45,8 @@ public class HackeryMod {
 	public static HackeryCommonProxy proxy;
 	
 	public static Logger logger;
+	
+	public static EnumMap<Side,FMLEmbeddedChannel> channel;
 	
 	//Glitch Blocks
 	public static GlitchMaterial		matGlitch			= new GlitchMaterial(MapColor.purpleColor);
@@ -69,6 +75,8 @@ public class HackeryMod {
 		
 		proxy.registerRenderThings();
 		proxy.registerKeyBinds();
+		
+		channel = NetworkRegistry.INSTANCE.newChannel("hackery", new HacketHandler());
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
