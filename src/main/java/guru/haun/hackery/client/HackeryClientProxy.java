@@ -17,7 +17,7 @@ public class HackeryClientProxy extends HackeryCommonProxy {
 	
 	public void registerRenderThings(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TraceAnalyzerTE.class, new TraceAnalyzerRenderer());
-		MinecraftForge.EVENT_BUS.register(new HackPotionHandler());
+		FMLCommonHandler.instance().bus().register(new HackPotionHandler());;
 	}
 	
 	public void registerKeyBinds(){
