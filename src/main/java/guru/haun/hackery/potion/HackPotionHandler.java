@@ -16,9 +16,11 @@ public class HackPotionHandler {
 	private static boolean laststate = false;
 	private static long lasttick = 0;
 	private static int nexttick = 10;
+	private static int nextheadtick = 5;
+	private static int lastheadtick = 0;
 	private static float oldeye;
 	
-	private static final String[] niceShaders = new String[] {"bits","bumpy","color_convolve","green","ntsc","phosphor","sobel"};
+	private static final String[] niceShaders = new String[] {"bits","bumpy","deconvolve","green","ntsc","phosphor","sobel"};
 	
 	private void shuffleShader(){
 		String shadername = niceShaders[(int) ((float)niceShaders.length * Math.random())];
@@ -34,21 +36,23 @@ public class HackPotionHandler {
 			if(mc.thePlayer.isPotionActive(HackPotions.potionGF)){
 				//On activateion
 				shuffleShader();
-				oldeye = mc.thePlayer.eyeHeight;
 			}else{
 				//On deactivation
 				mc.entityRenderer.deactivateShader();
-				mc.thePlayer.eyeHeight = oldeye;
 			}
 			laststate = mc.thePlayer.isPotionActive(HackPotions.potionGF);
 		}
 		if(mc.thePlayer.isPotionActive(HackPotions.potionGF)){
-			long ticks = mc.theWorld.getWorldTime();
+			long ticks = mc.theWorld.getWorldInfo().getWorldTotalTime();
 			if(ticks != lasttick && ( ticks % (20 + nexttick) == 0)){
 				shuffleShader();
-				mc.thePlayer.eyeHeight = (float) (1.9f * Math.random() + .1f);
 				lasttick = ticks;
 				nexttick = (int) (20f * Math.random());
+			}
+			if(ticks != lastheadtick && (ticks % 10 + nextheadtick) == 0){
+				jerkHead();
+				lastheadtick = ticks;
+				nextheadtick = (int) (10f * Math.random());
 			}
 		}
 		
