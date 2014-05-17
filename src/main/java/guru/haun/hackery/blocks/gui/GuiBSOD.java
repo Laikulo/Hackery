@@ -37,7 +37,6 @@ public class GuiBSOD extends GuiScreen {
 	
 	@Override
 	public void keyTyped(char ascii, int scancode){
-		mc.displayGuiScreen((GuiScreen) null);
 		return;
 	}
 	
