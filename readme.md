@@ -55,5 +55,4 @@ The shards are pretty pointless... maybe there is a use for them:
 
 ![2x2](readme-images/potionHint.png)
 
-**WARNING: This mod contains fast-moving shaders, and may cause Epileptic fits, if you are prone to these, do NOT use this mod**
-
+**WARNING: This mod contains fast-moving shaders, and may cause Epileptic fits, if you are prone to these, do NOT use this mod without turning the shaders off in the config**
