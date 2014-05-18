@@ -17,7 +17,7 @@ import net.minecraftforge.common.util.Constants;
 public class TraceAnalyzerTE extends TileEntity implements IInventory {
 
 	private ItemStack[] inv;
-	private static int operationTicks = 30;
+	private static int operationTicks = 300;
 	public int operationProgress;
 	private boolean running;
 	
