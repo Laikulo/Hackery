@@ -16,4 +16,9 @@ public class InfectedEnchant extends Enchantment {
     public int getMaxLevel() {
         return 1;
     }
+
+    @Override
+    public int getMinEnchantability(int level){
+        return 100; //No enchanting!
+    }
 }
