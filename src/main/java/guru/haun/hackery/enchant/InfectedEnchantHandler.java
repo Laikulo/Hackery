@@ -42,10 +42,11 @@ public class InfectedEnchantHandler {
         ItemStack theIstack = inv.getStackInSlot(theStack);
         if(theIstack == null) return;
         theIstack.stackSize--;
-        if(theIstack.stackSize < 1)
+        if(theIstack.stackSize < 1){
             theIstack = null;
+        }
         HackeryMod.logger.error("Test3");
-        e.inventory.inventoryChanged = true;
+        e.inventory.markDirty();
         e.inventoryContainer.detectAndSendChanges();
     }
 }
