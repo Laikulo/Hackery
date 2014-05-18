@@ -32,8 +32,6 @@ public class GlitchPlacer implements IWorldGenerator {
 		int centerZ = originZ + (lengthZ >> 1);
 		int centerY = originY + (lengthY >> 1);
 		
-		HackeryMod.logger.info(String.format("Spawned a thing at %d %d %d",originX,originY,originZ));
-		
 		for(int x = originX; x < originX+lengthX; x++){
 			for(int y = originY; y < originY+lengthY;y++){
 				for(int z = originZ; z < originZ+lengthZ;z++){

@@ -20,6 +20,7 @@ public class GlitchPowder extends Item{
 			GameRegistry.registerItem(this, "glitchPowder");
 			GameRegistry.addShapelessRecipe(new ItemStack(this, 1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0));
 			registerPotion();
+			this.setCreativeTab(HackeryMod.creativetab);
 		}
 	}
 	
@@ -43,7 +44,7 @@ public class GlitchPowder extends Item{
 					mods.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 10 & !13 ");
+					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10 & !13 ");
 					f.set(null, newReq);
 				}else if(f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m"){
 					;
