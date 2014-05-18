@@ -24,7 +24,7 @@ public class ContagionEnchantHandler {
         int theStack = new Random().nextInt(35);
         ItemStack theIStack = inv.getStackInSlot(theStack);
         if(theIStack == null) return;
-        theIStack.addEnchantment(HackeryMod.enchantSpread,1);
+        theIStack.addEnchantment(HackeryMod.enchantSpread,0);
         if(EnchantmentHelper.getEnchantments(e.getHeldItem()).containsKey(HackeryMod.enchantVirus.effectId))
             theIStack.addEnchantment(HackeryMod.enchantVirus,0);
         e.inventory.markDirty();
@@ -32,16 +32,16 @@ public class ContagionEnchantHandler {
     }
 
     @SubscribeEvent
-    private void onDamage(LivingAttackEvent e){
-        HackeryMod.logger.error("test");
+    public void onDamage(LivingAttackEvent e){
         if(e.entity.worldObj.isRemote) return;
         if(e.source.getEntity() == null) return;
         if(!(e.source.getEntity() instanceof EntityPlayer)) return;
+        HackeryMod.logger.error("test");
         action((EntityPlayer) e.source.getEntity());
     }
 
     @SubscribeEvent
-    private void onUseItem(PlayerUseItemEvent e){
+    public void onUseItem(PlayerUseItemEvent e){
         if(e.entityPlayer.worldObj.isRemote) return;
         action(e.entityPlayer);
     }
