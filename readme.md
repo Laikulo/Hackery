@@ -37,7 +37,7 @@ And use an analyzer to search for possible exploits.
 
 ![CoreDump Analyzer](readme-images/recipieAnalyzer.png)
 
-Sometimes, you will get a usable exploit:
+Sometimes, you will get a good exploit:
 
 ![An Exploit](readme-images/resultExploit.png)
 
