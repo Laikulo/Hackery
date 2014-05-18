@@ -132,6 +132,7 @@ public class HackeryMod {
         ExploitUtils.addExploit(new mailbombExploit());
         ExploitUtils.addExploit(new InfectionExploit());
         ExploitUtils.addExploit(new ContagionExploit());
+        ExploitUtils.addExploit(new QuestExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		
