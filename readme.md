@@ -27,5 +27,12 @@ This represents where the code has failed, and has created the foothold for an e
 
 Unfortunately, you can't remove the glitch itself, but with the proper tool, you can collect some information about the crash.
 
-![Glitch Harvester]()
+![Glitch Harvester](readme-images/recipieHarvester.png)
 
+And use an analyzer to search for possible exploits.
+
+![Guilded Redstone](readme-images/recipieGuildedRedstone.png)
+
+![Emerald Glass](readme-images/recipieEmeraldGlass.png)
+
+![CoreDump Analyzer](readme-images/recipieAnalyzer.png)
