@@ -18,12 +18,11 @@ public class HackPotionHandler {
 	private static long lasttick = 0;
 	private static int nexttick = 10;
 	private static long lastheadtick = 0;
-	private static float oldeye;
 	
 	private static final String[] niceShaders = new String[] {"bits","bumpy","deconverge","green","ntsc","phosphor","sobel"};
 	
 	private void shuffleShader(){
-		String shadername = niceShaders[(int) ((float)niceShaders.length * Math.random())];
+		String shadername = niceShaders[(int) ((float)niceShaders.length * Math.random())-1];
 		shadername = String.format("minecraft:shaders/post/%s.json",shadername);
 		HaClientUtils.setShader(new ResourceLocation(shadername));
 	}
