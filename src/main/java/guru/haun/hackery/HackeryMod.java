@@ -95,9 +95,10 @@ public class HackeryMod {
 
         enchantVirus = new InfectedEnchant(59,0,EnumEnchantmentType.all);
         enchantSpread = new ContagionEnchant(60,0,EnumEnchantmentType.all);
-        enchantQuest = new QuestEnchantment(61,0,EnumEnchantmentType.all);
+        enchantQuest = new QuestEnchantment(58,0,EnumEnchantmentType.all);
         MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new ContagionEnchantHandler());
+        MinecraftForge.EVENT_BUS.register(new QuestEnchantHandler());
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");

@@ -12,6 +12,7 @@ exploitVirus.name=Exploit - Item Infection
 exploitSpread.name=Exploit - Item Contagion
 enchantment.infected=Infected
 enchantment.contagion=Contagious
+enchantment.quest=Quest Item
 enchantment.level.0=
 itemGroup.tabHackery=Hackery
 item.shardGlitch.name=Glitch Shard

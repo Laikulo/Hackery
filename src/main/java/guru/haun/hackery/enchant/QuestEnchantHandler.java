@@ -15,7 +15,8 @@ public class QuestEnchantHandler {
         if(e.entity.worldObj.isRemote) return;
         if(!e.entityItem.getEntityItem().isItemEnchanted()) return;
         if(!EnchantmentHelper.getEnchantments(e.entityItem.getEntityItem()).containsKey(HackeryMod.enchantQuest.effectId)) return;
-        e.setCanceled();
+        e.setCanceled(true);
         e.player.inventory.setInventorySlotContents(e.player.inventory.getFirstEmptyStack(),e.entityItem.getEntityItem());
+        e.player.inventoryContainer.detectAndSendChanges();
     }
 }
