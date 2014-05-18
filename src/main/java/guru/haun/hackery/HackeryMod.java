@@ -3,6 +3,8 @@ package guru.haun.hackery;
 import java.util.EnumMap;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import guru.haun.hackery.enchant.ContagionEnchant;
+import guru.haun.hackery.enchant.ContagionEnchantHandler;
 import guru.haun.hackery.enchant.InfectedEnchant;
 import guru.haun.hackery.enchant.InfectedEnchantHandler;
 import guru.haun.hackery.exploits.*;
@@ -71,6 +73,7 @@ public class HackeryMod {
 	public static GlitchShard			shardGlitch			= new GlitchShard();
 	public static GlitchPowder			powderGlitch;
     public static InfectedEnchant       enchantVirus;
+    public static ContagionEnchant      enchantSpread;
 		
 	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
@@ -93,6 +96,7 @@ public class HackeryMod {
 
         enchantVirus = new InfectedEnchant(59,0,EnumEnchantmentType.all);
         MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
+        MinecraftForge.EVENT_BUS.register(new ContagionEnchantHandler());
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
@@ -125,6 +129,7 @@ public class HackeryMod {
         ExploitUtils.addExploit(new ExploitHealthAdjust());
         ExploitUtils.addExploit(new mailbombExploit());
         ExploitUtils.addExploit(new InfectionExploit());
+        ExploitUtils.addExploit(new ContagionExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		
