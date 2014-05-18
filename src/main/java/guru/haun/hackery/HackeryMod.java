@@ -2,10 +2,13 @@ package guru.haun.hackery;
 
 import java.util.EnumMap;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import guru.haun.hackery.enchant.InfectedEnchant;
+import guru.haun.hackery.enchant.InfectedEnchantHandler;
 import guru.haun.hackery.exploits.ExploitHealthAdjust;
 import guru.haun.hackery.exploits.mailbombExploit;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.EmeraldGlassBlock;
@@ -89,6 +92,8 @@ public class HackeryMod {
 		proxy.registerKeyBinds();
 		
 		channel = NetworkRegistry.INSTANCE.newChannel("hackery", new HacketHandler());
+
+        FMLCommonHandler.instance().bus().register(new InfectedEnchantHandler());
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");
