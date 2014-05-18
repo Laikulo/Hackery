@@ -29,7 +29,7 @@ public class GlitchPowder extends Item{
 	}
 	
 	public String getPotionEffect(ItemStack is){
-		return "+0+1-2+3-13";
+		return "+0+1-2+3+10-13";
 	}
 	
 	public void registerPotion(){
@@ -43,7 +43,7 @@ public class GlitchPowder extends Item{
 					mods.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newReq.put(Integer.valueOf(HackPotions.potionGFId), "0 1 !2 3 !13");
+					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 10 & !13 ");
 					f.set(null, newReq);
 				}else if(f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m"){
 					;
