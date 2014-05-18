@@ -3,10 +3,13 @@ package guru.haun.hackery.items;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
+import java.util.List;
 
 import guru.haun.hackery.HackeryMod;
 import guru.haun.hackery.potion.HackPotions;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionHelper;
@@ -29,7 +32,8 @@ public class GlitchPowder extends Item{
 		return true;
 	}
 	
-	public String getPotionEffect(ItemStack is){
+	@Override
+    public String getPotionEffect(ItemStack is){
 		return "+0+1-2+3+10+13";
 	}
 	
@@ -61,5 +65,15 @@ public class GlitchPowder extends Item{
 		}
 		
 	}
+
+    @Override
+    public void getSubItems(Item i, CreativeTabs tab, List l) {
+        l.add(new ItemStack(this,1,0));
+        l.add(new ItemStack(Items.potionitem,1,9243));
+        l.add(new ItemStack(Items.potionitem,1,9307));
+        l.add(new ItemStack(Items.potionitem,1,17435));
+        l.add(new ItemStack(Items.potionitem,1,17499));
+    }
+
 
 }
