@@ -5,6 +5,7 @@ import java.util.EnumMap;
 import guru.haun.hackery.enchant.InfectedEnchant;
 import guru.haun.hackery.exploits.ExploitHealthAdjust;
 import guru.haun.hackery.exploits.mailbombExploit;
+import net.minecraft.enchantment.EnumEnchantmentType;
 import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.EmeraldGlassBlock;
@@ -69,7 +70,7 @@ public class HackeryMod {
 	public static ExploitItem			itemExploit			= new ExploitItem();
 	public static GlitchShard			shardGlitch			= new GlitchShard();
 	public static GlitchPowder			powderGlitch;
-    public static InfectedEnchant       enchanteInfected    = new InfectedEnchant(59,1,)
+    public static InfectedEnchant       enchantVirus    = new InfectedEnchant(59,1, EnumEnchantmentType.all);
 		
 	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {

@@ -9,6 +9,7 @@ import guru.haun.hackery.items.ExploitItem;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemExpBottle;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -19,12 +20,15 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 public class InfectedEnchantHandler {
     @SubscribeEvent
     public void onDamage(LivingAttackEvent e){
+        if(e.entity.worldObj.isRemote) return;
         if(e.source.getEntity() == null) return;
         if(!(e.source.getEntity() instanceof EntityPlayer)) return;
         EntityPlayer attacker = (EntityPlayer) e.source.getEntity();
         if(attacker.getHeldItem() == null) return;
         if(!attacker.getHeldItem().isItemEnchanted());
-        if(EnchantmentHelper.getEnchantments(attacker.getHeldItem()).containsKey(HackeryMod.enchantVirus.getId()));
+        if(!(EnchantmentHelper.getEnchantments(attacker.getHeldItem()).containsKey(HackeryMod.enchantVirus.effectId))) return;
+        InventoryPlayer inv = attacker.inventory;
+        
 
     }
 }
