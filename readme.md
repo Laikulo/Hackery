@@ -12,5 +12,5 @@ Getting Started
 ---------------
 From time-to Time, you may encounter structures like this in your world:
 
-*Image Here*
+![Glitch Structure](
 
