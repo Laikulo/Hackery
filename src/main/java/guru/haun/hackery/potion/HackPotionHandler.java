@@ -22,6 +22,7 @@ public class HackPotionHandler {
 	private static final String[] niceShaders = new String[] {"bits","bumpy","deconverge","green","ntsc","phosphor","sobel"};
 	
 	private void shuffleShader(){
+        if(!HackeryMod.config.glitchShaders) return;
 		String shadername = niceShaders[(int) ((float)niceShaders.length * Math.random())];
 		shadername = String.format("minecraft:shaders/post/%s.json",shadername);
 		HaClientUtils.setShader(new ResourceLocation(shadername));

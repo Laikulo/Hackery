@@ -73,6 +73,8 @@ public class HackeryMod {
     public static ContagionEnchant      enchantSpread;
     public static QuestEnchantment      enchantQuest;
 
+    public static HackeryConfig         config;
+
 		
 	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
@@ -87,15 +89,18 @@ public class HackeryMod {
 	public void HackeryPreInit(FMLPreInitializationEvent e){
 		
 		this.logger = e.getModLog();
+
+        config = new HackeryConfig(e.getSuggestedConfigurationFile());
+
 		proxy.registerRenderThings();
 		proxy.registerKeyBinds();
 		
 		channel = NetworkRegistry.INSTANCE.newChannel("hackery", new HacketHandler());
 
 
-        enchantVirus = new InfectedEnchant(59,0,EnumEnchantmentType.all);
-        enchantSpread = new ContagionEnchant(60,0,EnumEnchantmentType.all);
-        enchantQuest = new QuestEnchantment(58,0,EnumEnchantmentType.all);
+        enchantVirus = new InfectedEnchant(config.idEnchInfect,0,EnumEnchantmentType.all);
+        enchantSpread = new ContagionEnchant(config.idEnchSpread,0,EnumEnchantmentType.all);
+        enchantQuest = new QuestEnchantment(config.idEnchQuest,0,EnumEnchantmentType.all);
         MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new ContagionEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new QuestEnchantHandler());
