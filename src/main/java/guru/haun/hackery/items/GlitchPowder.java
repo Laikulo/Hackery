@@ -30,24 +30,29 @@ public class GlitchPowder extends Item{
 	}
 	
 	public String getPotionEffect(ItemStack is){
-		return "+0+1-2+3+10-13";
+		return "+0+1-2+3+10";
 	}
 	
 	public void registerPotion(){
 		try{
 			Class potHepler = PotionHelper.class;
 			Field potFields[] = potHepler.getDeclaredFields();
+			Field mods;
+			mods = Field.class.getDeclaredField("modifiers");
+			mods.setAccessible(true);
 			for(Field f : potFields){
 				if(f.getName() == "potionRequirements" || f.getName() == "field_77927_l"){
-					Field mods = Field.class.getDeclaredField("modifiers");
-					mods.setAccessible(true);
 					mods.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10 & !13 ");
+					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10");
 					f.set(null, newReq);
 				}else if(f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m"){
-					;
+					mods.setInt(f, f.getModifiers()& ~Modifier.FINAL);
+					f.setAccessible(true);
+					final HashMap<Integer,String> newAmp = (HashMap<Integer, String>)((HashMap<Integer,String>)f.get(null)).clone();
+					newAmp.put(Integer.valueOf(HackPotions.potionGFId), "5");
+					f.set(null, newAmp);
 				}
 			}
 		}catch (Exception e){
