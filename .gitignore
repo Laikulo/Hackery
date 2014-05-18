@@ -9,3 +9,6 @@ eclipse/
 *~
 .metadata/
 .settings/
+*.iml
+*.ipr
+*.iws
