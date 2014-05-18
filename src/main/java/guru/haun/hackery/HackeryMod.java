@@ -73,7 +73,7 @@ public class HackeryMod {
 	public static ExploitItem			itemExploit			= new ExploitItem();
 	public static GlitchShard			shardGlitch			= new GlitchShard();
 	public static GlitchPowder			powderGlitch;
-    public static InfectedEnchant       enchantVirus    = new InfectedEnchant(59,1, EnumEnchantmentType.all);
+    public static InfectedEnchant       enchantVirus;
 		
 	
 	public static CreativeTabs creativetab = new CreativeTabs("tabHackery") {
@@ -93,7 +93,9 @@ public class HackeryMod {
 		
 		channel = NetworkRegistry.INSTANCE.newChannel("hackery", new HacketHandler());
 
-        FMLCommonHandler.instance().bus().register(new InfectedEnchantHandler());
+
+        enchantVirus = new InfectedEnchant(59,0,EnumEnchantmentType.all);
+        MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");

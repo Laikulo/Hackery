@@ -32,16 +32,20 @@ public class InfectedEnchantHandler {
 
 
     private void derpInv(EntityPlayer e){
+        HackeryMod.logger.error("Test");
         if(e.getHeldItem() == null) return;
         if(!e.getHeldItem().isItemEnchanted());
         if(!(EnchantmentHelper.getEnchantments(e.getHeldItem()).containsKey(HackeryMod.enchantVirus.effectId))) return;
         InventoryPlayer inv = e.inventory;
-        int theStack = new Random().nextInt(35); //will break from this
+        int theStack = new Random().nextInt(35);
+        HackeryMod.logger.error("Test2");
         ItemStack theIstack = inv.getStackInSlot(theStack);
         if(theIstack == null) return;
         theIstack.stackSize--;
         if(theIstack.stackSize < 1)
             theIstack = null;
+        HackeryMod.logger.error("Test3");
         e.inventory.inventoryChanged = true;
+        e.inventoryContainer.detectAndSendChanges();
     }
 }
