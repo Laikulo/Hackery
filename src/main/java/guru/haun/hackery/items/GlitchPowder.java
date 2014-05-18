@@ -49,7 +49,7 @@ public class GlitchPowder extends Item{
 					mods.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10 & 0+6");
+					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10 & 3+6");
 					f.set(null, newReq);
 				}else if(false && (f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m")){
 					mods.setInt(f, f.getModifiers()& ~Modifier.FINAL);
