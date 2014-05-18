@@ -36,3 +36,24 @@ And use an analyzer to search for possible exploits.
 ![Emerald Glass](readme-images/recipieEmeraldGlass.png)
 
 ![CoreDump Analyzer](readme-images/recipieAnalyzer.png)
+
+Sometimes, you will get a usable exploit:
+
+![An Exploit](readme-images/resultExploit.png)
+
+Sometimes, you just get a mess of code:
+
+![A Glitch Shard](readme-images/resultShard.png)
+
+And other time, nothing!
+
+There are a number of exploits available, but most of the only make sense on multiplayer servers.
+
+Learning about them is half of the fun!
+
+The shards are pretty pointless... maybe there is a use for them:
+
+![2x2](readme-images/potionHint.png)
+
+**WARNING: This mod contains fast-moving shaders, and may cause Epileptic fits, if you are prone to these, do NOT use this mod**
+
