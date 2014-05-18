@@ -5,8 +5,7 @@ import java.util.EnumMap;
 import cpw.mods.fml.common.FMLCommonHandler;
 import guru.haun.hackery.enchant.InfectedEnchant;
 import guru.haun.hackery.enchant.InfectedEnchantHandler;
-import guru.haun.hackery.exploits.ExploitHealthAdjust;
-import guru.haun.hackery.exploits.mailbombExploit;
+import guru.haun.hackery.exploits.*;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Logger;
@@ -18,8 +17,6 @@ import guru.haun.hackery.blocks.GuildedRedstoneBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerBlock;
 import guru.haun.hackery.blocks.TraceAnalyzerTE;
 import guru.haun.hackery.blocks.gui.GuiHandler;
-import guru.haun.hackery.exploits.CrashExploit;
-import guru.haun.hackery.exploits.RandomTpExploit;
 import guru.haun.hackery.items.ExploitItem;
 import guru.haun.hackery.items.GlitchHarvester;
 import guru.haun.hackery.items.GlitchPowder;
@@ -127,6 +124,7 @@ public class HackeryMod {
 		ExploitUtils.addExploit(new CrashExploit());
         ExploitUtils.addExploit(new ExploitHealthAdjust());
         ExploitUtils.addExploit(new mailbombExploit());
+        ExploitUtils.addExploit(new InfectionExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		

@@ -43,7 +43,7 @@ public class InfectedEnchantHandler {
         if(theIstack == null) return;
         theIstack.stackSize--;
         if(theIstack.stackSize < 1){
-            theIstack = null;
+            e.inventory.setInventorySlotContents(theStack,null);
         }
         HackeryMod.logger.error("Test3");
         e.inventory.markDirty();
