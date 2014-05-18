@@ -2,9 +2,12 @@ package guru.haun.hackery.enchant;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import guru.haun.hackery.ExploitUtils;
+import guru.haun.hackery.HackeryMod;
 import guru.haun.hackery.exploits.IExploit;
 import guru.haun.hackery.exploits.InfectionExploit;
 import guru.haun.hackery.items.ExploitItem;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemExpBottle;
 import net.minecraft.item.ItemStack;
@@ -16,12 +19,12 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 public class InfectedEnchantHandler {
     @SubscribeEvent
     public void onDamage(LivingAttackEvent e){
-        if (!(e.entity instanceof EntityPlayerMP)) return;
-        ItemStack is = ((EntityPlayerMP) e.entity).getHeldItem();
-        if (is == null) return;
-        if (is.getItem() == null) return;
-        if (!(is.getItem() instanceof ExploitItem)) return;
-        if (ExploitUtils.getExploitById(is.getItemDamage()).getName() != "exploitVirus") return;
-        e.
+        if(e.source.getEntity() == null) return;
+        if(!(e.source.getEntity() instanceof EntityPlayer)) return;
+        EntityPlayer attacker = (EntityPlayer) e.source.getEntity();
+        if(attacker.getHeldItem() == null) return;
+        if(!attacker.getHeldItem().isItemEnchanted());
+        if(EnchantmentHelper.getEnchantments(attacker.getHeldItem()).containsKey(HackeryMod.enchantVirus.getId()));
+
     }
 }
