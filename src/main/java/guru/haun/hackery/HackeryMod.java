@@ -95,6 +95,7 @@ public class HackeryMod {
 
 
         enchantVirus = new InfectedEnchant(59,0,EnumEnchantmentType.all);
+        enchantSpread = new ContagionEnchant(60,0,EnumEnchantmentType.all);
         MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new ContagionEnchantHandler());
 		

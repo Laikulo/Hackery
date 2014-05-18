@@ -33,8 +33,9 @@ public class ContagionEnchantHandler {
 
     @SubscribeEvent
     private void onDamage(LivingAttackEvent e){
+        HackeryMod.logger.error("test");
         if(e.entity.worldObj.isRemote) return;
-        if(e.source.getEntity() == null);
+        if(e.source.getEntity() == null) return;
         if(!(e.source.getEntity() instanceof EntityPlayer)) return;
         action((EntityPlayer) e.source.getEntity());
     }
