@@ -12,6 +12,7 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 public class InfectedEnchantHandler {
     @SubscribeEvent
     public void onDamage(LivingAttackEvent e){
-        if (e.entity instanceof EntityPlayerMP && ((EntityPlayerMP) e.entity).getHeldItem() instanceof ExploitItem &&)
+        if (!(e.entity instanceof EntityPlayerMP)) return;
+        if (!(e.entity.))
     }
 }
