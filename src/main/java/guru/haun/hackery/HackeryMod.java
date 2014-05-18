@@ -3,6 +3,7 @@ package guru.haun.hackery;
 import java.util.EnumMap;
 
 import guru.haun.hackery.exploits.ExploitHealthAdjust;
+import guru.haun.hackery.exploits.mailbombExploit;
 import org.apache.logging.log4j.Logger;
 
 import guru.haun.hackery.blocks.EmeraldGlassBlock;
@@ -115,6 +116,7 @@ public class HackeryMod {
 		ExploitUtils.addExploit(new RandomTpExploit());
 		ExploitUtils.addExploit(new CrashExploit());
         ExploitUtils.addExploit(new ExploitHealthAdjust());
+        ExploitUtils.addExploit(new mailbombExploit());
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		
