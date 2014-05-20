@@ -12,7 +12,6 @@ public class HackPotions {
 
 	public static Potion potionGitchFest;
 	
-	public static int potionGFId=100;
 	public static Potion potionGF;
 	
 	public static void register() {
@@ -39,7 +38,7 @@ public class HackPotions {
 		}
 		
 
-		potionGF = new HackPotion(potionGFId, true, 0).setPotionName("GlitchFest");
+		potionGF = new HackPotion(HackeryMod.config.idEffectGlitch, true, 0).setPotionName("GlitchFest");
 	}
 
 }

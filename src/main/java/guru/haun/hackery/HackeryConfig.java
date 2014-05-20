@@ -16,6 +16,7 @@ public class HackeryConfig extends Configuration {
     public int idEnchInfect;
     public int idEnchSpread;
     public int idEnchQuest;
+    public int idEffectGlitch;
 
     public HackeryConfig(File file) {
 
@@ -34,6 +35,9 @@ public class HackeryConfig extends Configuration {
 
         Property propEnchQuest = this.get("Enchantments", "Quest Item",58);
         idEnchQuest = propEnchQuest.getInt();
+
+        Property propPotionId = this.get("Potions","glitchfestEffectId",100);
+        idEffectGlitch = propPotionId.getInt();
 
         this.save();
 
