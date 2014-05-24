@@ -17,6 +17,8 @@ public class HackeryConfig extends Configuration {
     public int idEnchSpread;
     public int idEnchQuest;
     public int idEffectGlitch;
+    public String gfPotionReq;
+    public String gpPotionEff;
 
     public HackeryConfig(File file) {
 
@@ -38,6 +40,12 @@ public class HackeryConfig extends Configuration {
 
         Property propPotionId = this.get("Potions","glitchfestEffectId",100);
         idEffectGlitch = propPotionId.getInt();
+
+        Property propPotionReq = this.get("Brewing","glitchfestPotionRequirement", " 0 & 1 & !2 & 3 & 4 & 10 & 3+6");
+        gfPotionReq = propPotionReq.getString();
+
+        Property propPotionEff = this.get("Brewing","glitchPowderPotionEffect","+0+1-2+3+10+13");
+        gpPotionEff = propPotionEff.getString();
 
         this.save();
 
