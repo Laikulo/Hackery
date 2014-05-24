@@ -2,11 +2,12 @@
 Hackery for Minecraft
 =====================
 
+[![Build Status](http://ci.jam-craft.net/buildStatus/icon?job=Hackery)](http://ci.jam-craft.net/job/Hackery/)
+
 About
 -----
 
 Hackery is a mod for minecraft based on exploiting the game, from within the game.
-Requires Forge 1083!
 
 
 Compiling
