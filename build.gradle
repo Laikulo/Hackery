@@ -69,5 +69,5 @@ processResources
 
 release {
 	grgit = Grgit.open(project.file('.'))
-	releaseTasks = ['build']
+	releaseTasks = ['build','install']
 }
