@@ -1,3 +1,4 @@
+
 buildscript {
     repositories {
         mavenCentral()
@@ -12,10 +13,14 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+	classpath 'org.ajoberstar:gradle-git:0.8.0'
     }
 }
 
+import org.ajoberstar.grgit.Grgit;
+
 apply plugin: 'forge'
+apply plugin: 'grgit-release'
 
 version = "1.0"
 group= "guru.haun" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -60,4 +65,9 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+release {
+	grgit = Grgit.open(project.file('.'))
+	releaseTasks = ['build']
 }
