@@ -34,7 +34,7 @@ public class GlitchPowder extends Item{
 	
 	@Override
     public String getPotionEffect(ItemStack is){
-		return "+0+1-2+3+10+13";
+		return HackeryMod.config.gpPotionEff;
 	}
 	
 	public void registerPotion(){
@@ -49,13 +49,13 @@ public class GlitchPowder extends Item{
 					mods.setInt(f, f.getModifiers() & ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newReq.put(Integer.valueOf(HackPotions.potionGFId), " 0 & 1 & !2 & 3 & 4 & 10 & 3+6");
+					newReq.put(HackeryMod.config.idEffectGlitch, HackeryMod.config.gfPotionReq);
 					f.set(null, newReq);
 				}else if(false && (f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m")){
 					mods.setInt(f, f.getModifiers()& ~Modifier.FINAL);
 					f.setAccessible(true);
 					final HashMap<Integer,String> newAmp = (HashMap<Integer, String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newAmp.put(Integer.valueOf(HackPotions.potionGFId), "5");
+					newAmp.put(HackeryMod.config.idEffectGlitch, "5");
 					f.set(null, newAmp);
 				}
 			}
