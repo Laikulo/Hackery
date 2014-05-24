@@ -19,10 +19,11 @@ buildscript {
 
 import org.ajoberstar.grgit.Grgit;
 
-apply plugin: 'forge'
+version = "0.0.0"
 apply plugin: 'grgit-release'
+System.out.println(project.version)
+apply plugin: 'forge'
 
-version = "1.0"
 group= "guru.haun" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Hackery"
 
@@ -69,5 +70,5 @@ processResources
 
 release {
 	grgit = Grgit.open(project.file('.'))
-	releaseTasks = ['build','install']
+	releaseTasks = ['build']
 }
