@@ -160,7 +160,6 @@ public class HackeryMod {
 	
 	@EventHandler
 	public void HackeryInit(FMLInitializationEvent e){
-		
 	}
 	
 	

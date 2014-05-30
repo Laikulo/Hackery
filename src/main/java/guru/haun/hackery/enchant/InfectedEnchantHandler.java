@@ -24,12 +24,10 @@ public class InfectedEnchantHandler {
     }
 
     @SubscribeEvent
-    public void onUseItem(PlayerUseItemEvent e){
+    public void onUseItem(PlayerUseItemEvent.Finish e){
         if(e.entityPlayer.worldObj.isRemote) return;
         derpInv(e.entityPlayer);
     }
-
-
 
     private void derpInv(EntityPlayer e){
         if(e.getHeldItem() == null) return;
@@ -46,4 +44,5 @@ public class InfectedEnchantHandler {
         e.inventory.markDirty();
         e.inventoryContainer.detectAndSendChanges();
     }
+
 }

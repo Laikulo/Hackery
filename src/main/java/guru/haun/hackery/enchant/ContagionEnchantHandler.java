@@ -41,7 +41,7 @@ public class ContagionEnchantHandler {
     }
 
     @SubscribeEvent
-    public void onUseItem(PlayerUseItemEvent e){
+    public void onUseItem(PlayerUseItemEvent.Finish e){
         if(e.entityPlayer.worldObj.isRemote) return;
         action(e.entityPlayer);
     }
