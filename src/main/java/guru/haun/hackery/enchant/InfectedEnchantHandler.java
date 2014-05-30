@@ -33,7 +33,7 @@ public class InfectedEnchantHandler {
 
     private void derpInv(EntityPlayer e){
         if(e.getHeldItem() == null) return;
-        if(!e.getHeldItem().isItemEnchanted());
+        if(!e.getHeldItem().isItemEnchanted()) return;
         if(!(EnchantmentHelper.getEnchantments(e.getHeldItem()).containsKey(HackeryMod.enchantVirus.effectId))) return;
         InventoryPlayer inv = e.inventory;
         int theStack = new Random().nextInt(35);

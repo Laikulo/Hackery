@@ -3,9 +3,13 @@ package guru.haun.hackery;
 import java.util.EnumMap;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import guru.haun.hackery.command.nsodCommand;
 import guru.haun.hackery.enchant.*;
 import guru.haun.hackery.exploits.*;
+import net.minecraft.command.CommandHandler;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Logger;
 
@@ -104,6 +108,8 @@ public class HackeryMod {
         MinecraftForge.EVENT_BUS.register(new InfectedEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new ContagionEnchantHandler());
         MinecraftForge.EVENT_BUS.register(new QuestEnchantHandler());
+        proxy.registerServerCommands();
+
 		
 		GameRegistry	.registerBlock(blockGlitchCore, "blockGlitchCore");
 		GameRegistry	.registerBlock(blockGlitch, "blockGlitch");

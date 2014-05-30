@@ -32,4 +32,9 @@ public class HackeryClientProxy extends HackeryCommonProxy {
 			if(Minecraft.getMinecraft().currentScreen instanceof GuiBSOD)
 				Minecraft.getMinecraft().displayGuiScreen((GuiScreen) null);
 	}
+
+    @Override
+    public void registerServerCommands() {
+        ;
+    }
 }

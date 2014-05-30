@@ -36,9 +36,13 @@ public class nsodCommand extends CommandBase {
     @Override
     public void processCommand(ICommandSender plr, String[] args) {
         if (!plr.getEntityWorld().isRemote) {
+            if(args.length != 2){
+                plr.addChatMessage(new ChatComponentText("commands.nsod.usage"));
+                return;
+            }
             EntityPlayerMP vicitm = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(args[0]);
             if(vicitm == null){
-                plr.addChatMessage(new ChatComponentText("You are not allowed to use this command").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
+                plr.addChatMessage(new ChatComponentText("commands.nsod.noexist").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
                 return;
             }
             Boolean value = Boolean.parseBoolean(args[1]);
