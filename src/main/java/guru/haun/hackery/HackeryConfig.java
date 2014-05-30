@@ -1,7 +1,6 @@
 package guru.haun.hackery;
 
 
-import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
