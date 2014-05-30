@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import guru.haun.hackery.HackeryMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.shader.ShaderGroup;
-import net.minecraft.client.util.JsonException;
 import net.minecraft.util.ResourceLocation;
 
 public class HaClientUtils {
@@ -15,7 +14,7 @@ public class HaClientUtils {
 		Minecraft mc = Minecraft.getMinecraft();
         try {
             mc.entityRenderer.theShaderGroup = new ShaderGroup(mc.getResourceManager(), mc.getFramebuffer(), sha);
-        } catch (JsonException e) {
+        } catch (Exception e) {
             HackeryMod.logger.error("Something bad happened while swapping shaders");
             e.printStackTrace();
         }
