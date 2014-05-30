@@ -92,7 +92,7 @@ public class HackeryMod {
 	@EventHandler
 	public void HackeryPreInit(FMLPreInitializationEvent e){
 		
-		this.logger = e.getModLog();
+		logger = e.getModLog();
 
         config = new HackeryConfig(e.getSuggestedConfigurationFile());
 
