@@ -13,12 +13,12 @@ public class HaClientUtils {
 	@SideOnly(Side.CLIENT)
 	public static void setShader(ResourceLocation sha){
 		Minecraft mc = Minecraft.getMinecraft();
-        //try {
+        try {
             mc.entityRenderer.theShaderGroup = new ShaderGroup(mc.getResourceManager(), mc.getFramebuffer(), sha);
-        //} catch (JsonException e) {
-         //   HackeryMod.logger.error("Something bad happened while swapping shaders");
-         //   e.printStackTrace();
-        //}
+        } catch (JsonException e) {
+            HackeryMod.logger.error("Something bad happened while swapping shaders");
+            e.printStackTrace();
+        }
         mc.entityRenderer.theShaderGroup.createBindFramebuffers(mc.displayWidth, mc.displayHeight);
 	}
 	
