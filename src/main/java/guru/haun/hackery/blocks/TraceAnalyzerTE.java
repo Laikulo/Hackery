@@ -2,10 +2,9 @@ package guru.haun.hackery.blocks;
 
 import java.util.Random;
 
-import guru.haun.hackery.ExploitUtils;
+import guru.haun.hackery.api.exploits.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

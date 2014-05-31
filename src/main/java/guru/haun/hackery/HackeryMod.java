@@ -2,6 +2,7 @@ package guru.haun.hackery;
 
 import java.util.EnumMap;
 
+import guru.haun.hackery.api.exploits.ExploitUtils;
 import guru.haun.hackery.enchant.*;
 import guru.haun.hackery.exploits.*;
 import net.minecraft.enchantment.EnumEnchantmentType;

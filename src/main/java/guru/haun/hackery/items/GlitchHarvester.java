@@ -1,18 +1,13 @@
 package guru.haun.hackery.items;
 
-import guru.haun.hackery.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
-import guru.haun.hackery.exploits.IExploit;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -22,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
-import net.minecraft.world.World;
 
 public class GlitchHarvester extends ItemTool {
 
