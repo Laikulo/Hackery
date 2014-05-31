@@ -19,7 +19,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version="0.0.2"
+version="0.1.0"
 group= "guru.haun" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Hackery"
 
