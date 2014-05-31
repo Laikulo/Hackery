@@ -17,9 +17,15 @@ buildscript {
 }
 
 
+version="0.1.0"
+if (System.getenv()['BUILD_NUMBER']) {
+    version += "-jnks" + System.getenv()['BUILD_NUMBER']
+}
+
 apply plugin: 'forge'
 
-version="0.1.0"
+//try to append jenkins build number
+
 group= "guru.haun" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Hackery"
 
