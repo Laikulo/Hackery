@@ -2,14 +2,9 @@ package guru.haun.hackery;
 
 import java.util.EnumMap;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import guru.haun.hackery.command.nsodCommand;
 import guru.haun.hackery.enchant.*;
 import guru.haun.hackery.exploits.*;
-import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Logger;
 
@@ -27,11 +22,9 @@ import guru.haun.hackery.items.GlitchShard;
 import guru.haun.hackery.material.GlitchMaterial;
 import guru.haun.hackery.potion.HackPotions;
 import guru.haun.hackery.worldgen.GlitchPlacer;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -137,13 +130,13 @@ public class HackeryMod {
 			glitchHarvester.registerRecipie();
 		glitchHarvester	.setCreativeTab(creativetab);
 		
-		ExploitUtils.addExploit(new RandomTpExploit(0));
-		ExploitUtils.addExploit(new CrashExploit(1));
+		ExploitUtils.addExploit(new ExploitRandomTp(0));
+		ExploitUtils.addExploit(new ExploitCrash(1));
         ExploitUtils.addExploit(new ExploitHealthAdjust(2));
-        ExploitUtils.addExploit(new mailbombExploit(3));
-        ExploitUtils.addExploit(new InfectionExploit(4));
-        ExploitUtils.addExploit(new ContagionExploit(5));
-        ExploitUtils.addExploit(new QuestExploit(6));
+        ExploitUtils.addExploit(new ExploitMailBomb(3));
+        ExploitUtils.addExploit(new ExploitInfection(4));
+        ExploitUtils.addExploit(new ExploitContagion(5));
+        ExploitUtils.addExploit(new ExploitQuest(6));
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		
