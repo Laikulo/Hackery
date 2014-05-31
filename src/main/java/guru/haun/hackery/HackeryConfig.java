@@ -24,7 +24,7 @@ public class HackeryConfig extends Configuration {
         super(file);
         this.load();
 
-        Property propShaders = this.get("Saftey","Shaders",true);
+        Property propShaders = this.get("Safety","Shaders",true);
         propShaders.comment = "Disable this if you are sensitive to flashing lights!!!";
         glitchShaders = propShaders.getBoolean(false);
 
