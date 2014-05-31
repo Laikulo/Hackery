@@ -137,13 +137,13 @@ public class HackeryMod {
 			glitchHarvester.registerRecipie();
 		glitchHarvester	.setCreativeTab(creativetab);
 		
-		ExploitUtils.addExploit(new RandomTpExploit());
-		ExploitUtils.addExploit(new CrashExploit());
-        ExploitUtils.addExploit(new ExploitHealthAdjust());
-        ExploitUtils.addExploit(new mailbombExploit());
-        ExploitUtils.addExploit(new InfectionExploit());
-        ExploitUtils.addExploit(new ContagionExploit());
-        ExploitUtils.addExploit(new QuestExploit());
+		ExploitUtils.addExploit(new RandomTpExploit(0));
+		ExploitUtils.addExploit(new CrashExploit(1));
+        ExploitUtils.addExploit(new ExploitHealthAdjust(2));
+        ExploitUtils.addExploit(new mailbombExploit(3));
+        ExploitUtils.addExploit(new InfectionExploit(4));
+        ExploitUtils.addExploit(new ContagionExploit(5));
+        ExploitUtils.addExploit(new QuestExploit(6));
 		GameRegistry	.registerItem(itemExploit, "itemExploit");
 		itemExploit.setCreativeTab(creativetab);
 		
