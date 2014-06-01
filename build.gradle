@@ -18,16 +18,25 @@ buildscript {
 
 
 version="0.2.0"
+//try to append jenkins build number to version number if it exists
 if (System.getenv()['BUILD_NUMBER']) {
     version += "-jnks" + System.getenv()['BUILD_NUMBER']
 }
 
 apply plugin: 'forge'
 
-//try to append jenkins build number
-
 group= "guru.haun" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Hackery"
+
+//enable IDEA git support by default
+idea.project.ipr.withXml { 
+	provider -> provider.node.component.find { it.@name == 'VcsDirectoryMappings' }.mapping.@vcs = 'Git'
+}
+
+//and don't whine about the Gradle buildfile that is here
+idea.workspace.iws.withXml {
+	provider -> provider.asNode().component.find { it.@name == 'PropertiesComponent' }.appendNode('property',[ name: 'show.inlinked.gradle.project.popup', value:'false'])
+}
 
 minecraft {
     version = "1.7.2-10.12.1.1101"
