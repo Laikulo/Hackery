@@ -34,6 +34,39 @@ minecraft {
     assetDir = "eclipse/assets"
 }
 
+sourceSets {
+    api {
+        java{
+            srcDir 'src/api/java'
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+	from sourceSets.main.allSource
+	from sourceSets.api.allSource
+	classifier = 'src'
+}
+
+task deobfJar(type: Jar) {
+	from sourceSets.main.output
+	from sourceSets.api.output
+	classifier = 'dev'
+}
+
+task apiJar(type: Jar) {
+	from sourceSets.api.output
+	classifier = 'api'
+}
+
+build.dependsOn sourceJar, deobfJar, apiJar
+
+artifacts {
+	archives sourceJar
+	archives deobfJar
+	archives apiJar
+}
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -70,3 +103,6 @@ processResources
     }
 }
 
+jar { //remember to add API to final jar
+    from sourceSets.api.output
+}
