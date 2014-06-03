@@ -114,4 +114,5 @@ processResources
 
 jar { //remember to add API to final jar
     from sourceSets.api.output
+    classifier = 'universal'
 }
