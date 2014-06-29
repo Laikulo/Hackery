@@ -15,7 +15,7 @@ Compiling
 This mod is compiled like any other ForgeGradle mod.
 
 1. Clone the repository (or download the zipball)
-2. run gradlew build
+2. run gradlew clean setupCIWorkspace build
 3. The result may be found in build/lib
 
 
