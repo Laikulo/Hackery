@@ -13,7 +13,7 @@ public class HaClientUtils {
 	public static void setShader(ResourceLocation sha){
 		Minecraft mc = Minecraft.getMinecraft();
         try {
-            mc.entityRenderer.theShaderGroup = new ShaderGroup(mc.getResourceManager(), mc.getFramebuffer(), sha);
+            mc.entityRenderer.theShaderGroup = new ShaderGroup(mc.getTextureManager(), mc.getResourceManager(), mc.getFramebuffer(), sha);
         } catch (Exception e) {
             HackeryMod.logger.error("Something bad happened while swapping shaders");
             e.printStackTrace();

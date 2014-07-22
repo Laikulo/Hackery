@@ -6,6 +6,7 @@ import guru.haun.hackery.HackeryMod;
 import guru.haun.hackery.network.setBSODPacket;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.PlayerSelector;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
@@ -40,7 +41,7 @@ public class nsodCommand extends CommandBase {
                 plr.addChatMessage(new ChatComponentText("commands.nsod.usage"));
                 return;
             }
-            EntityPlayerMP vicitm = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(args[0]);
+            EntityPlayerMP vicitm = getPlayer(plr,args[0]);
             if(vicitm == null){
                 plr.addChatMessage(new ChatComponentText("commands.nsod.noexist").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
                 return;
