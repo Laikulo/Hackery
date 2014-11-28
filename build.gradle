@@ -17,7 +17,7 @@ buildscript {
 }
 
 
-version="0.2.0"
+version="0.3.0"
 //try to append jenkins build number to version number if it exists
 if (System.getenv()['BUILD_NUMBER']) {
     version += "-jnks" + System.getenv()['BUILD_NUMBER']
@@ -39,7 +39,7 @@ idea.workspace.iws.withXml {
 }
 
 minecraft {
-    version = "1.7.10-10.13.0.1180"
+    version = "1.8-11.14.0.1239-1.8"
     assetDir = "eclipse/assets"
 }
 
