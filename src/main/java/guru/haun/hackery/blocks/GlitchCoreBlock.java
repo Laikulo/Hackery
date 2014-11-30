@@ -9,8 +9,7 @@ public class GlitchCoreBlock extends Block {
 		super(mat);
 		setBlockUnbreakable();
 		setResistance(9000000);
-		setBlockName("blockGlitchCore");
-		setBlockTextureName("hackery:GlitchCore");
+		setUnlocalizedName("blockGlitchCore");
 		setLightLevel(0.6F);
 	}
 

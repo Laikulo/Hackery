@@ -1,6 +1,6 @@
 package guru.haun.hackery.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -20,8 +20,7 @@ public class EmeraldGlassBlock extends Block {
 	
 	public EmeraldGlassBlock() {
 		super(Material.glass);
-		setBlockName("emeraldGlass");
-		setBlockTextureName("hackery:EmeraldGlass");
+		setUnlocalizedName("emeraldGlass");
 		setHardness(1);
 		setResistance(1);
 		setHarvestLevel("pickaxe",1);

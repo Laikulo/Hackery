@@ -39,7 +39,7 @@ idea.workspace.iws.withXml {
 }
 
 minecraft {
-    version = "1.8-11.14.0.1239-1.8"
+    version = "1.8-11.14.0.1247-1.8"
     assetDir = "eclipse/assets"
 }
 

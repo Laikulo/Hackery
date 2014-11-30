@@ -1,24 +1,22 @@
 package guru.haun.hackery.items;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.List;
-
 import guru.haun.hackery.HackeryMod;
-import guru.haun.hackery.potion.HackPotions;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.List;
 
 public class GlitchPowder extends Item{
 	
 	public GlitchPowder(boolean register) {
 		setUnlocalizedName("powderGlitch");
-		setTextureName("hackery:GlitchPowder");
 		if(register){
 			GameRegistry.registerItem(this, "glitchPowder");
 			GameRegistry.addShapelessRecipe(new ItemStack(this, 1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0));

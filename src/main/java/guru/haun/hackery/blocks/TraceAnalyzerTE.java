@@ -1,9 +1,7 @@
 package guru.haun.hackery.blocks;
 
-import java.util.Random;
-
-import guru.haun.hackery.api.exploits.ExploitUtils;
 import guru.haun.hackery.HackeryMod;
+import guru.haun.hackery.api.exploits.ExploitUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -11,7 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.util.Constants;
+
+import java.util.Random;
 
 public class TraceAnalyzerTE extends TileEntity implements IInventory {
 
@@ -40,7 +42,7 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 				}else{
 					this.operationProgress++;
 					this.markDirty();
-					if(this.operationProgress >= this.operationTicks){
+					if(this.operationProgress >= operationTicks){
 						processBlock();
 						this.operationProgress = 0;
 						this.running = false;
@@ -117,13 +119,18 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 		return "guru.haun.hackers.tracer";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return true;
+	}
+
+	@Override
+	public IChatComponent getDisplayName() {
+		return new ChatComponentText("Trace Analyzer");
 	}
 
 	@Override
@@ -136,21 +143,32 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		return true;
 	}
 
-	@Override
-	public void openInventory() {
-		
-	}
-
-	@Override
-	public void closeInventory() {
-		
-	}
 
 	@Override
 	public boolean isItemValidForSlot(int var1, ItemStack var2) {
 		return true;
 	}
-	
+
+	@Override
+	public int getField(int id) {
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+
+	}
+
+	@Override
+	public int getFieldCount() {
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+
+	}
+
 	public void readFromNBT(NBTTagCompound nbt){
 		super.readFromNBT(nbt);
 		NBTTagList taglist = nbt.getTagList("inventory",Constants.NBT.TAG_COMPOUND);
@@ -162,7 +180,8 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 			}
 		}
 	}
-	
+
+	@Override
 	public void writeToNBT(NBTTagCompound nbt){
 		super.writeToNBT(nbt);
 		
@@ -178,6 +197,14 @@ public class TraceAnalyzerTE extends TileEntity implements IInventory {
 		}
 		nbt.setTag("inventory",itemList);
 	}
-	
-	
+
+	@Override
+	public void openInventory(EntityPlayer playerIn) {
+
+	}
+
+	@Override
+	public void closeInventory(EntityPlayer playerIn) {
+
+	}
 }

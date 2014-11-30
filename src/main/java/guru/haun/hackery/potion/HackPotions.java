@@ -1,12 +1,11 @@
 package guru.haun.hackery.potion;
 
 import guru.haun.hackery.HackeryMod;
+import net.minecraft.potion.Potion;
+import net.minecraft.util.ResourceLocation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.potion.Potion;
 
 public class HackPotions {
 
@@ -38,7 +37,7 @@ public class HackPotions {
 		}
 		
 
-		potionGF = new HackPotion(HackeryMod.config.idEffectGlitch, true, 0).setPotionName("GlitchFest");
+		potionGF = new HackPotion(HackeryMod.config.idEffectGlitch, new ResourceLocation("glitched"), true, 0).setPotionName("GlitchFest");
 	}
 
 }

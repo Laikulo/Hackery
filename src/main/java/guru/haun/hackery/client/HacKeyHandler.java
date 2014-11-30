@@ -6,8 +6,8 @@ import net.minecraft.client.util.JsonException;
 import net.minecraft.util.ResourceLocation;
 import guru.haun.hackery.HackeryMod;
 import guru.haun.hackery.blocks.gui.GuiBSOD;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 public class HacKeyHandler {
 	
