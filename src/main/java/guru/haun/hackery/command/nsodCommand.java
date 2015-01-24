@@ -1,17 +1,16 @@
 package guru.haun.hackery.command;
 
-import cpw.mods.fml.common.network.FMLOutboundHandler;
-import cpw.mods.fml.relauncher.Side;
 import guru.haun.hackery.HackeryMod;
 import guru.haun.hackery.network.setBSODPacket;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.PlayerSelector;
+import net.minecraft.command.PlayerNotFoundException;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.fml.common.network.FMLOutboundHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * Created by KJ4IPS on 5/30/2014.
@@ -41,7 +40,13 @@ public class nsodCommand extends CommandBase {
                 plr.addChatMessage(new ChatComponentText("commands.nsod.usage"));
                 return;
             }
-            EntityPlayerMP vicitm = getPlayer(plr,args[0]);
+            EntityPlayerMP vicitm = null;
+            try {
+                vicitm = getPlayer(plr,args[0]);
+            } catch (PlayerNotFoundException e) {
+                e.printStackTrace();
+                return;
+            }
             if(vicitm == null){
                 plr.addChatMessage(new ChatComponentText("commands.nsod.noexist").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
                 return;

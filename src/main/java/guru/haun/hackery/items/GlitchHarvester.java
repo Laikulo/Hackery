@@ -1,12 +1,7 @@
 package guru.haun.hackery.items;
 
-import guru.haun.hackery.HackeryMod;
-
-import java.util.Set;
-
 import com.google.common.collect.Sets;
-
-import cpw.mods.fml.common.registry.GameRegistry;
+import guru.haun.hackery.HackeryMod;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.util.Set;
 
 public class GlitchHarvester extends ItemTool {
 
@@ -43,7 +41,6 @@ public class GlitchHarvester extends ItemTool {
 		setMaxStackSize(1);
 		setUnlocalizedName("glitchHarvester");
 		setHarvestLevel("GlitchHarvester",1);
-		setTextureName("hackery:GlitchHarvester");
 	}
 	
 	//Not a sword
@@ -71,6 +68,7 @@ public class GlitchHarvester extends ItemTool {
 	public boolean func_150809_b(Block block){
 		return block == HackeryMod.blockGlitch;
 	}
+
 	
 	public GlitchHarvester(){
 		this(speed,ToolMaterial.EMERALD,mineable);

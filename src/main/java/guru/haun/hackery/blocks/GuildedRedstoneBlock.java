@@ -1,6 +1,6 @@
 package guru.haun.hackery.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -18,8 +18,7 @@ public class GuildedRedstoneBlock extends Block {
 	
 	public GuildedRedstoneBlock() {
 		super(Material.rock);
-		setBlockName("guildedRedstone");
-		setBlockTextureName("hackery:GoldRedstone");
+		setUnlocalizedName("guildedRedstone");
 		setHardness(1);
 		setResistance(1);
 		setHarvestLevel("pickaxe", 0);

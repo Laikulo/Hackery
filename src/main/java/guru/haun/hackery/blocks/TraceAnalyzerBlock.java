@@ -1,17 +1,16 @@
 package guru.haun.hackery.blocks;
 
 import guru.haun.hackery.HackeryMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class TraceAnalyzerBlock extends BlockContainer {
 
@@ -22,8 +21,7 @@ public class TraceAnalyzerBlock extends BlockContainer {
 	
 	public TraceAnalyzerBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
-		setBlockName("traceAnalyzer");
-		setBlockTextureName("hackery:TraceAnalyzerBlock");
+		setUnlocalizedName("traceAnalyzer");
 	}
 
 	@Override
@@ -38,21 +36,14 @@ public class TraceAnalyzerBlock extends BlockContainer {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
-		TileEntity te = world.getTileEntity(x, y, z);
-		if(te == null || player.isSneaking()) return false;
-		player.openGui(HackeryMod.instance, 0, world, x, y, z);
+
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
+		TileEntity te = worldIn.getTileEntity(pos);
+		if(te==null || playerIn.isSneaking()) return false;
+		playerIn.openGui(HackeryMod.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 
-	
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iIconR){
-		super.registerBlockIcons(iIconR);
-	}
+
 }

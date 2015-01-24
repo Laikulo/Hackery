@@ -1,11 +1,6 @@
 package guru.haun.hackery.blocks.gui;
 
-import org.lwjgl.opengl.GL11;
-
-import guru.haun.hackery.HackeryMod;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.shader.TesselatorVertexState;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiBSOD extends GuiScreen {

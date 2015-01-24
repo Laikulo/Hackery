@@ -4,7 +4,7 @@ import guru.haun.hackery.network.IPacket;
 import guru.haun.hackery.network.setBSODPacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import cpw.mods.fml.common.network.FMLIndexedMessageToMessageCodec;
+import net.minecraftforge.fml.common.network.FMLIndexedMessageToMessageCodec;
 
 
 public class HacketHandler extends FMLIndexedMessageToMessageCodec<IPacket>{

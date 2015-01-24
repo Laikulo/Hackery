@@ -1,13 +1,12 @@
 package guru.haun.hackery.worldgen;
 
 import guru.haun.hackery.HackeryMod;
-
-import java.util.Random;
-import java.util.logging.Level;
-
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.IWorldGenerator;
+
+import java.util.Random;
 
 public class GlitchPlacer implements IWorldGenerator {
 	
@@ -31,30 +30,32 @@ public class GlitchPlacer implements IWorldGenerator {
 		int centerX = originX + (lengthX >> 1);
 		int centerZ = originZ + (lengthZ >> 1);
 		int centerY = originY + (lengthY >> 1);
-		
+
+		BlockPos position;
 		for(int x = originX; x < originX+lengthX; x++){
 			for(int y = originY; y < originY+lengthY;y++){
 				for(int z = originZ; z < originZ+lengthZ;z++){
-					if(world.getBlock(x, y, z).getBlockHardness(world, x, y, z) >= 0.0F){
-						world.setBlockToAir(x, y, z);
+					position = new BlockPos(x,y,z);
+					if(world.getChunkFromBlockCoords(position).getBlock(position).getBlockHardness(world, position) >= 0.0F){
+						world.setBlockToAir(position);
 					}
 				}
 			}
 		}
 
 		for(int x = originX; x < originX+lengthX; x++){
-			world.setBlock(x, centerY, centerZ, HackeryMod.blockGlitch, 0, 3);
+			world.setBlockState(new BlockPos(x, centerY, centerZ), HackeryMod.blockEmeraldGlass.getDefaultState(), 3);
 		}
 		
 		for(int y = originY; y < originY+lengthY; y++){
-			world.setBlock(centerX, y, centerZ, HackeryMod.blockGlitch, 0, 3);
+			world.setBlockState(new BlockPos(centerX, y, centerZ), HackeryMod.blockGlitch.getDefaultState(), 3);
 		}
 		
 		for(int z = originZ; z < originZ+lengthZ; z++){
-			world.setBlock(centerX, centerY, z, HackeryMod.blockGlitch, 0, 3);
+			world.setBlockState(new BlockPos(centerX, centerY, z), HackeryMod.blockGlitch.getDefaultState(), 3);
 		}
 		
-		world.setBlock(centerX, centerY, centerZ, HackeryMod.blockGlitchCore, 0, 3);
+		world.setBlockState(new BlockPos(centerX, centerY, centerZ), HackeryMod.blockGlitchCore.getDefaultState(), 3);
 		
 		
 	}
