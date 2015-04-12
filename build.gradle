@@ -17,7 +17,7 @@ buildscript {
 }
 
 
-version="0.2.0"
+version="0.2.1"
 //try to append jenkins build number to version number if it exists
 if (System.getenv()['BUILD_NUMBER']) {
     version += "-jnks" + System.getenv()['BUILD_NUMBER']

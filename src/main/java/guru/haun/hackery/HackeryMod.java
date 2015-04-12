@@ -1,32 +1,5 @@
 package guru.haun.hackery;
 
-import java.util.EnumMap;
-
-import guru.haun.hackery.api.exploits.ExploitUtils;
-import guru.haun.hackery.enchant.*;
-import guru.haun.hackery.exploits.*;
-import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraftforge.common.MinecraftForge;
-import org.apache.logging.log4j.Logger;
-
-import guru.haun.hackery.blocks.EmeraldGlassBlock;
-import guru.haun.hackery.blocks.GlitchBlock;
-import guru.haun.hackery.blocks.GlitchCoreBlock;
-import guru.haun.hackery.blocks.GuildedRedstoneBlock;
-import guru.haun.hackery.blocks.TraceAnalyzerBlock;
-import guru.haun.hackery.blocks.TraceAnalyzerTE;
-import guru.haun.hackery.blocks.gui.GuiHandler;
-import guru.haun.hackery.items.ExploitItem;
-import guru.haun.hackery.items.GlitchHarvester;
-import guru.haun.hackery.items.GlitchPowder;
-import guru.haun.hackery.items.GlitchShard;
-import guru.haun.hackery.material.GlitchMaterial;
-import guru.haun.hackery.potion.HackPotions;
-import guru.haun.hackery.worldgen.GlitchPlacer;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -38,9 +11,30 @@ import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import guru.haun.hackery.api.exploits.ExploitUtils;
+import guru.haun.hackery.blocks.*;
+import guru.haun.hackery.blocks.gui.GuiHandler;
+import guru.haun.hackery.enchant.*;
+import guru.haun.hackery.exploits.*;
+import guru.haun.hackery.items.ExploitItem;
+import guru.haun.hackery.items.GlitchHarvester;
+import guru.haun.hackery.items.GlitchPowder;
+import guru.haun.hackery.items.GlitchShard;
+import guru.haun.hackery.material.GlitchMaterial;
+import guru.haun.hackery.potion.HackPotions;
+import guru.haun.hackery.worldgen.GlitchPlacer;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.Logger;
+
+import java.util.EnumMap;
 
 
-@Mod(modid="hackery", name="Hackers", version="modjam")
+@Mod(modid="hackery", name="Hackers", version="0.2.1")
 public class HackeryMod {
 	
 	@Instance("hackery")

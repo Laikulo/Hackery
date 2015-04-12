@@ -1,6 +1,7 @@
 package guru.haun.hackery;
 
 
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -37,7 +38,12 @@ public class HackeryConfig extends Configuration {
         Property propEnchQuest = this.get("Enchantments", "Quest Item",58);
         idEnchQuest = propEnchQuest.getInt();
 
-        Property propPotionId = this.get("Potions","glitchfestEffectId",100);
+        Property propPotionId = this.get("Potions", "glitchfestEffectId", 30);
+        if(propPotionId.getInt() >= Potion.potionTypes.length){
+            HackeryMod.logger.error("The specified potion ID is out of range, {} was given, but the highest allowed is {}! Fix the config!",propPotionId.getInt(), Potion.potionTypes.length-1);
+            throw new RuntimeException();
+        }
+        propPotionId.comment = "The potion ID that hackery will use for glitchfest";
         idEffectGlitch = propPotionId.getInt();
 
         Property propPotionReq = this.get("Brewing","glitchfestPotionRequirement", " 0 & 1 & !2 & 3 & 4 & 10 & 3+6");
