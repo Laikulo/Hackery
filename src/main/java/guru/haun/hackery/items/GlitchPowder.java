@@ -1,18 +1,17 @@
 package guru.haun.hackery.items;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.List;
-
-import guru.haun.hackery.HackeryMod;
-import guru.haun.hackery.potion.HackPotions;
 import cpw.mods.fml.common.registry.GameRegistry;
+import guru.haun.hackery.HackeryMod;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionHelper;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.List;
 
 public class GlitchPowder extends Item{
 	
@@ -21,8 +20,10 @@ public class GlitchPowder extends Item{
 		setTextureName("hackery:GlitchPowder");
 		if(register){
 			GameRegistry.registerItem(this, "glitchPowder");
-			GameRegistry.addShapelessRecipe(new ItemStack(this, 1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0), new ItemStack(HackeryMod.shardGlitch,1,0));
+			GameRegistry.addShapelessRecipe(new ItemStack(this, 1, 0), new ItemStack(HackeryMod.shardGlitch, 1, 0), new ItemStack(HackeryMod.shardGlitch, 1, 0), new ItemStack(HackeryMod.shardGlitch, 1, 0), new ItemStack(HackeryMod.shardGlitch, 1, 0));
 			registerPotion();
+			this.setPotionEffect(HackeryMod.config.gpPotionEff);
+			this.setPotionEffect("");
 			this.setCreativeTab(HackeryMod.creativetab);
 		}
 	}
@@ -30,11 +31,6 @@ public class GlitchPowder extends Item{
 	@Override
 	public boolean isPotionIngredient(ItemStack is){
 		return true;
-	}
-	
-	@Override
-    public String getPotionEffect(ItemStack is){
-		return HackeryMod.config.gpPotionEff;
 	}
 	
 	public void registerPotion(){
@@ -51,12 +47,6 @@ public class GlitchPowder extends Item{
 					final HashMap<Integer,String> newReq = (HashMap<Integer,String>)((HashMap<Integer,String>)f.get(null)).clone();
 					newReq.put(HackeryMod.config.idEffectGlitch, HackeryMod.config.gfPotionReq);
 					f.set(null, newReq);
-				}else if(false && (f.getName() == "potionAmplifiers" || f.getName() == "field_77928_m")){
-					mods.setInt(f, f.getModifiers()& ~Modifier.FINAL);
-					f.setAccessible(true);
-					final HashMap<Integer,String> newAmp = (HashMap<Integer, String>)((HashMap<Integer,String>)f.get(null)).clone();
-					newAmp.put(HackeryMod.config.idEffectGlitch, "5");
-					f.set(null, newAmp);
 				}
 			}
 		}catch (Exception e){
