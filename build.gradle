@@ -76,7 +76,15 @@ artifacts {
 	archives apiJar
 }
 
+repositories {
+    maven {
+        name 'chickenbones'
+        url 'http://chickenbones.net/maven/'
+    }
+}
+
 dependencies {
+
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
@@ -91,6 +99,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
 }
+
 
 processResources
 {

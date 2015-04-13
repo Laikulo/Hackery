@@ -46,10 +46,10 @@ public class HackeryConfig extends Configuration {
         propPotionId.comment = "The potion ID that hackery will use for glitchfest";
         idEffectGlitch = propPotionId.getInt();
 
-        Property propPotionReq = this.get("Brewing","glitchfestPotionRequirement", " 0 & 1 & !2 & 3 & 4 & 10 & 3+6");
+        Property propPotionReq = this.get("Brewing","glitchfestPotionRequirement", " 0 & 1 & !2 & 3 & 10 & 3+6");
         gfPotionReq = propPotionReq.getString();
 
-        Property propPotionEff = this.get("Brewing","glitchPowderPotionEffect","+0+1-2+3+10+13");
+        Property propPotionEff = this.get("Brewing","glitchPowderPotionEffect","+0+1-2+3+10+13&4-4");
         gpPotionEff = propPotionEff.getString();
 
         this.save();
